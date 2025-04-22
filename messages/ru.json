@@ -1,0 +1,148 @@
+{
+    "Navbar": {
+    "brand": "Маркетплейс",
+    "home": "Главная",
+    "cart": "Корзина",
+    "profile": "Профиль",
+    "login": "Войти",
+    "signUp": "Зарегистрироваться",
+    "logout": "Выйти"
+  },
+  
+    "ThemeSwitch": {
+    "switchToDark": "Перейти в темный режим",
+    "switchToLight": "Перейти в светлый режим",
+    "dark": "Темный",
+    "light": "Светлый",
+    "system": "Системный"
+  },
+
+  "button": {
+    "text": "Нажми на меня!",
+    "tooltip": "Это подсказка"
+  },
+
+
+  "RegisterPage": {
+    "title": "Создайте свой аккаунт",
+    "alreadyHaveAccount": "Уже есть аккаунт?",
+    "signIn": "Войти",
+    "usernameLabel": "Имя пользователя",
+    "usernamePlaceholder": "Введите имя пользователя",
+    "emailLabel": "Электронная почта",
+    "emailPlaceholder": "Введите ваш email",
+    "passwordLabel": "Пароль",
+    "passwordPlaceholder": "Создайте пароль",
+    "createAccount": "Создать аккаунт",
+    "creatingAccount": "Создание аккаунта...",
+    "termsAndPrivacy": "Регистрируясь, вы соглашаетесь с нашими",
+    "termsOfService": "Условиями использования",
+    "privacyPolicy": "Политикой конфиденциальности",
+    "error": "Регистрация не удалась. Пожалуйста, попробуйте снова."
+  },
+
+
+  "LoginPage": {
+    "title": "Войдите в свой аккаунт",
+    "noAccount": "Нет аккаунта?",
+    "createAccount": "Создать аккаунт",
+    "identifierLabel": "Имя пользователя или Email",
+    "identifierPlaceholder": "Введите имя пользователя или email",
+    "passwordLabel": "Пароль",
+    "passwordPlaceholder": "Введите ваш пароль",
+    "rememberMe": "Запомнить меня",
+    "forgotPassword": "Забыли пароль?",
+    "signIn": "Войти",
+    "signingIn": "Вход...",
+    "continueWith": "Или продолжите с",
+    "google": "Google",
+    "facebook": "Facebook",
+    "error": "Вход не удался. Пожалуйста, проверьте данные и попробуйте снова."
+  },
+
+  "VerifyEmailPage": {
+    "title": "Подтвердите ваш email",
+    "description": "Мы отправили код подтверждения на",
+    "codeLabel": "Код подтверждения",
+    "codePlaceholder": "Введите код подтверждения",
+    "verifyEmail": "Подтвердить Email",
+    "verifying": "Проверка...",
+    "successTitle": "Email успешно подтвержден!",
+    "successDescription": "Перенаправляем вас на страницу входа...",
+    "noCode": "Не получили код?",
+    "resend": "Отправить снова",
+    "resendWithCooldown": "Отправить снова ({cooldown}s)",
+    "error": "Подтверждение не удалось. Пожалуйста, попробуйте снова."
+  },
+
+
+  "AddProductPage": {
+    "titleStep1": "Добавить новый продукт",
+    "titleStep2": "Загрузить изображения продукта",
+    "descriptionStep1": "Заполните информацию о вашем продукте",
+    "descriptionStep2": "Загрузите минимум одно изображение вашего продукта (максимум 4)",
+    "productInformation": "Информация о продукте",
+    "productImages": "Изображения продукта",
+    "productTitle": "Название продукта",
+    "titlePlaceholder": "Введите название продукта",
+    "description": "Описание",
+    "descriptionPlaceholder": "Опишите ваш продукт подробно",
+    "price": "Цена",
+    "pricePlaceholder": "0.00",
+    "category": "Категория",
+    "categoryPlaceholder": "Выберите категорию",
+    "location": "Местоположение",
+    "latitude": "Широта",
+    "longitude": "Долгота",
+    "successTitle": "Продукт успешно добавлен!",
+    "successDescription": "Ваш продукт размещен на маркетплейсе.",
+    "viewProducts": "Посмотреть мои продукты",
+    "continueToImages": "Продолжить к добавлению изображений",
+    "backToDetails": "Вернуться к деталям",
+    "publishProduct": "Опубликовать продукт",
+    "saving": "Сохранение...",
+    "publishing": "Публикация...",
+    "error": "Не удалось создать продукт. Пожалуйста, попробуйте снова."
+  },
+  "ImageUploader": {
+    "dragAndDrop": "Перетащите ваши изображения сюда",
+    "clickToBrowse": "или нажмите, чтобы выбрать файлы",
+    "selectImages": "Выбрать изображения",
+    "imageCount": "Выбрано {count} из {max} изображений",
+    "errorTooLarge": "Файл {name} слишком большой. Максимальный размер 5 МБ.",
+    "errorInvalidFormat": "Файл {name} имеет неподдерживаемый формат. Используйте JPEG, PNG или HEIF.",
+    "errorMaxImages": "Вы можете загрузить максимум {max} изображений."
+  },
+  "MapPicker": {
+    "loading": "Загрузка карты..."
+  },
+
+  "ProductsPage": {
+    "title": "Продукты",
+    "noProducts": "Нет продуктов",
+    "loading": " Загрузка...",
+    "loadMore": "Загрузить больше",
+    "currency": "сум",
+    "location": "Местоположение",
+    "nophoto": "Нет фото",
+      "available": "Доступно",
+    "sold": "Продано",
+    "loadingLocation": "Загрузка местоположения..."
+  },
+
+
+  "ProfilePage": {
+    "loading": "Загрузка...",
+    "username": "Имя пользователя",
+    "bio": "Биография",
+    "noBio": "Нет биографии",
+    "emailNotConfirmed": "Email не подтвержден",
+    "editProfile": "Редактировать профиль",
+    "save": "Сохранить",
+    "cancel": "Отмена",
+    "userProducts": "Продукты пользователя",
+    "noProducts": "Нет продуктов"
+  }
+
+
+  }

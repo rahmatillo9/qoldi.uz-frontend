@@ -1,0 +1,147 @@
+{
+    "Navbar": {
+    "brand": "MarketPlace",
+    "home": "Home",
+    "cart": "Cart",
+    "profile": "Profile",
+    "login": "Login",
+    "signUp": "Sign Up",
+    "logout": "Logout"
+  },
+
+    "ThemeSwitch": {
+    "switchToDark": "Switch to dark mode",
+    "switchToLight": "Switch to light mode",
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System"
+  },
+
+  "button": {
+    "text": "Click me!",
+    "tooltip": "This is a tooltip"
+  },
+
+
+  "RegisterPage": {
+    "title": "Create your account",
+    "alreadyHaveAccount": "Already have an account?",
+    "signIn": "Sign in",
+    "usernameLabel": "Username",
+    "usernamePlaceholder": "Enter your username",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "Enter your email",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Create a password",
+    "createAccount": "Create account",
+    "creatingAccount": "Creating account...",
+    "termsAndPrivacy": "By signing up, you agree to our",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy",
+    "error": "Registration failed. Please try again."
+  },
+
+  "LoginPage": {
+    "title": "Sign in to your account",
+    "noAccount": "Don't have an account?",
+    "createAccount": "Create an account",
+    "identifierLabel": "Username or Email",
+    "identifierPlaceholder": "Enter your username or email",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot your password?",
+    "signIn": "Sign in",
+    "signingIn": "Signing in...",
+    "continueWith": "Or continue with",
+    "google": "Google",
+    "facebook": "Facebook",
+    "error": "Login failed. Please check your credentials and try again."
+  },
+
+  "VerifyEmailPage": {
+    "title": "Verify your email",
+    "description": "We've sent a verification code to",
+    "codeLabel": "Verification Code",
+    "codePlaceholder": "Enter verification code",
+    "verifyEmail": "Verify Email",
+    "verifying": "Verifying...",
+    "successTitle": "Email verified successfully!",
+    "successDescription": "Redirecting you to login...",
+    "noCode": "Didn't receive the code?",
+    "resend": "Resend",
+    "resendWithCooldown": "Resend ({cooldown}s)",
+    "error": "Verification failed. Please try again."
+  },
+
+
+  "AddProductPage": {
+    "titleStep1": "Add New Product",
+    "titleStep2": "Upload Product Images",
+    "descriptionStep1": "Fill in the details about your product",
+    "descriptionStep2": "Upload at least one image of your product (maximum 4)",
+    "productInformation": "Product Information",
+    "productImages": "Product Images",
+    "productTitle": "Product Title",
+    "titlePlaceholder": "Enter product title",
+    "description": "Description",
+    "descriptionPlaceholder": "Describe your product in detail",
+    "price": "Price",
+    "pricePlaceholder": "0.00",
+    "category": "Category",
+    "categoryPlaceholder": "Select a category",
+    "location": "Location",
+    "latitude": "Latitude",
+    "longitude": "Longitude",
+    "successTitle": "Product Added Successfully!",
+    "successDescription": "Your product has been listed on the marketplace.",
+    "viewProducts": "View My Products",
+    "continueToImages": "Continue to Add Images",
+    "backToDetails": "Back to Details",
+    "publishProduct": "Publish Product",
+    "saving": "Saving...",
+    "publishing": "Publishing...",
+    "error": "Failed to create product. Please try again."
+  },
+  "ImageUploader": {
+    "dragAndDrop": "Drag and drop your images here",
+    "clickToBrowse": "or click to browse your files",
+    "selectImages": "Select Images",
+    "imageCount": "{count} of {max} images selected",
+    "errorTooLarge": "File {name} is too large. Maximum size is 5MB.",
+    "errorInvalidFormat": "File {name} has unsupported format. Please use JPEG, PNG, or HEIF.",
+    "errorMaxImages": "You can only upload a maximum of {max} images."
+  },
+  "MapPicker": {
+    "loading": "Loading map..."
+  },
+
+  "ProductsPage": {
+    "title": "Products",
+    "noProducts": "No products",
+    "loading": "Loading...",
+    "loadMore": "Load more",
+    "currency": "sum",
+    "location": "Location",
+    "nophoto": "No photo",
+      "available": "Available",
+    "sold": "Sold",
+    "loadingLocation": "Loading location..."
+  },
+
+  "ProfilePage": {
+    "loading": "Loading...",
+    "username": "Username",
+    "bio": "Bio",
+    "noBio": "No bio",
+    "emailNotConfirmed": "Email not confirmed",
+    "editProfile": "Edit Profile",
+    "save": "Save",
+    "cancel": "Cancel",
+    "userProducts": "User Products",
+    "noProducts": "No products found"
+  }
+
+
+
+  }

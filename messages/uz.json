@@ -1,0 +1,151 @@
+{
+    "Navbar": {
+    "brand": "Onlayn Bozor",
+    "home": "Bosh sahifa",
+    "cart": "Savat",
+    "profile": "Profil",
+    "login": "Kirish",
+    "signUp": "Ro‘yxatdan o‘tish",
+    "logout": "Chiqish"
+  },
+
+    "ThemeSwitch": {
+    "switchToDark": "Qorong'i rejimga o'tish",
+    "switchToLight": "Yorug' rejimga o'tish",
+    "dark": "Qorong'i",
+    "light": "Yorug'",
+    "system": "Tizim"
+  },
+
+  "button": {
+    "text": "Meni bosing!",
+    "tooltip": "Bu bir ko'rsatma"
+  },
+
+
+  "RegisterPage": {
+    "title": "Hisob yarating",
+    "alreadyHaveAccount": "Allaqachon hisobingiz bormi?",
+    "signIn": "Kirish",
+    "usernameLabel": "Foydalanuvchi nomi",
+    "usernamePlaceholder": "Foydalanuvchi nomingizni kiriting",
+    "emailLabel": "Elektron pochta",
+    "emailPlaceholder": "Elektron pochtangizni kiriting",
+    "passwordLabel": "Parol",
+    "passwordPlaceholder": "Parol yarating",
+    "createAccount": "Hisob yaratish",
+    "creatingAccount": "Hisob yaratilmoqda...",
+    "termsAndPrivacy": "Ro'yxatdan o'tish orqali siz bizning",
+    "termsOfService": "Foydalanish shartlari",
+    "privacyPolicy": "Maxfiylik siyosati",
+    "error": "Ro'yxatdan o'tish muvaffaqiyatsiz yakunlandi. Iltimos, qayta urinib ko'ring."
+  },
+
+  "LoginPage": {
+    "title": "Hisobingizga kiring",
+    "noAccount": "Hisobingiz yo‘qmi?",
+    "createAccount": "Hisob yaratish",
+    "identifierLabel": "Foydalanuvchi nomi yoki Email",
+    "identifierPlaceholder": "Foydalanuvchi nomi yoki email kiriting",
+    "passwordLabel": "Parol",
+    "passwordPlaceholder": "Parolingizni kiriting",
+    "rememberMe": "Meni eslab qol",
+    "forgotPassword": "Parolingizni unutdingizmi?",
+    "signIn": "Kirish",
+    "signingIn": "Kirilmoqda...",
+    "continueWith": "Yoki quyidagilar bilan davom eting",
+    "google": "Google",
+    "facebook": "Facebook",
+    "error": "Kirish amalga oshmadi. Iltimos, ma’lumotlaringizni tekshirib, qayta urinib ko‘ring."
+  },
+
+
+  "VerifyEmailPage": {
+    "title": "Emailingizni tasdiqlang",
+    "description": "Biz tasdiqlash kodini yubordik:",
+    "codeLabel": "Tasdiqlash kodi",
+    "codePlaceholder": "Tasdiqlash kodini kiriting",
+    "verifyEmail": "Emailni tasdiqlash",
+    "verifying": "Tasdiqlanmoqda...",
+    "successTitle": "Email muvaffaqiyatli tasdiqlandi!",
+    "successDescription": "Sizni kirish sahifasiga yo‘naltiryapmiz...",
+    "noCode": "Kod kelmadi?",
+    "resend": "Qayta yuborish",
+    "resendWithCooldown": "Qayta yuborish ({cooldown}s)",
+    "error": "Tasdiqlash amalga oshmadi. Iltimos, qayta urinib ko‘ring."
+  },
+
+
+  "AddProductPage": {
+    "titleStep1": "Yangi mahsulot qo‘shish",
+    "titleStep2": "Mahsulot rasmlarini yuklash",
+    "descriptionStep1": "Mahsulotingiz haqida ma’lumotlarni to‘ldiring",
+    "descriptionStep2": "Mahsulotingizning kamida bitta rasmini yuklang (maksimum 4 ta)",
+    "productInformation": "Mahsulot haqida ma’lumot",
+    "productImages": "Mahsulot rasmlari",
+    "productTitle": "Mahsulot nomi",
+    "titlePlaceholder": "Mahsulot nomini kiriting",
+    "description": "Tavsif",
+    "descriptionPlaceholder": "Mahsulotingizni batafsil tariflang",
+    "price": "Narx",
+    "pricePlaceholder": "0.00",
+    "category": "Kategoriya",
+    "categoryPlaceholder": "Kategoriyani tanlang",
+    "location": "Joylashuv",
+    "latitude": "Kenglik",
+    "longitude": "Uzunlik",
+    "successTitle": "Mahsulot muvaffaqiyatli qo‘shildi!",
+    "successDescription": "Mahsulotingiz bozorda joylashtirildi.",
+    "viewProducts": "Mening mahsulotlarimni ko‘rish",
+    "continueToImages": "Rasmlarni qo‘shishga davom etish",
+    "backToDetails": "Ma’lumotlarga qaytish",
+    "publishProduct": "Mahsulotni e’lon qilish",
+    "saving": "Saqlanmoqda...",
+    "publishing": "E’lon qilinmoqda...",
+    "error": "Mahsulotni yaratish amalga oshmadi. Iltimos, qayta urinib ko‘ring.",
+    "imageUploadError": "Rasmni yuklashda xatolik yuz berdi: {{name}}"
+    },
+  "ImageUploader": {
+    "dragAndDrop": "Rasmlaringizni bu yerga sudrab olib keling",
+    "clickToBrowse": "yoki fayllarni tanlash uchun bosing",
+    "selectImages": "Rasmlarni tanlash",
+    "imageCount": "{count} / {max} rasm tanlandi",
+    "errorTooLarge": "{name} fayli juda katta. Maksimal hajm 5 MB.",
+    "errorInvalidFormat": "{name} fayli qo‘llab-quvvatlanmaydigan formatda. Iltimos, JPEG, PNG yoki HEIF ishlating.",
+    "errorMaxImages": "Siz maksimal {max} ta rasm yuklay olasiz."
+  },
+  "MapPicker": {
+    "loading": "Xarita yuklanmoqda..."
+  },
+
+  "ProductsPage": {
+    "title": "Mahsulotlar",
+    "noProducts": "Hozircha mahsulotlar mavjud emas",
+    "loading": "Yuklanmoqda...",
+    "loadMore": "Yana yuklash",
+    "currency": "so'm",
+    "location": "Manzil",
+    "nophoto": "Rasm yo'q",
+      "available": "Sotuvda",
+    "sold": "Sotildi",
+    "loadingLocation": "Manzil yuklanmoqda..."
+  },
+
+  "ProfilePage": {
+    "loading": "Yuklanmoqda...",
+    "username": "Foydalanuvchi nomi",
+    "bio": "Bio",
+    "noBio": "Bio mavjud emas",
+    "emailNotConfirmed": "Email tasdiqlanmagan",
+    "editProfile": "Profilni tahrirlash",
+    "save": "Saqlash",
+    "cancel": "Bekor qilish",
+    "userProducts": "Foydalanuvchi mahsulotlari",
+    "noProducts": "Hozircha mahsulotlar mavjud emas"
+  }
+
+  
+
+  
+  
+  }

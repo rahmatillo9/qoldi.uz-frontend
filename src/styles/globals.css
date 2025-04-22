@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f9fafb; /* Tailwind gray-50 */
+  --foreground: #111827; /* Tailwind gray-900 */
+}
+
+.dark {
+  --background: #030712; /* Tailwind gray-950 */
+  --foreground: #f9fafb; /* Tailwind gray-50 */
+  
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* styles/global.css yoki komponent CSS faylida */
+.select-listbox {
+  max-height: 240px;
+  overflow-y: auto;
+  background-color: #fff; /* yoki dark theme uchun dark:bg-gray-900 */
+}
+
+/* styles/global.css */
+textarea, input {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+textarea {
+  resize: none; /* Faqat vertikal o'lchamni saqlaydi */
+}
+
+.product-card:hover {
+  transition: transform 0.3s ease;
+}
+.carousel-button {
+  transition: background-color 0.2s ease;
+}
+
