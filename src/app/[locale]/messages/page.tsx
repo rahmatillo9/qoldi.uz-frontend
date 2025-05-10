@@ -191,7 +191,7 @@ export default function MessagesPage() {
                     </div>
                     {chat.product.images && chat.product.images.length > 0 && (
                       <img
-                        src={`${process.env.NEXT_PUBLIC_API_URL}${chat.product.images[0].imageUrl}`}
+                        src={`${process.env.NEXT_PUBLIC_API_URL}${chat.product.images[0]}`}
                         alt={chat.product.title}
                         className="mt-3 w-32 h-32 object-cover rounded-md"
                       />
