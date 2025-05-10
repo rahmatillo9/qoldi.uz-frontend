@@ -1,8 +1,19 @@
-// tailwind.config.js
-const {heroui} = require("@heroui/react");
+const { heroui } = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  content: [
+    "./node_modules/@heroui/theme/dist/components/skeleton.js"
+],
+  theme: {
+    extend: {
+      screens: {
+        'custom950': '950px', // 🎯 bu yerga to'g'ri qo'shamiz
+      },
+      // istasang boshqa extendlar ham shu yerga qo‘shilaveradi
+    },
+  },
+  darkMode: 'class', // bu yaxshi
   plugins: [
     heroui({
       layout: {
@@ -24,6 +35,4 @@ module.exports = {
       },
     }),
   ],
-  darkMode: 'class', // Bu muhim!
-  plugins: [],
 };

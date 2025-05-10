@@ -11,6 +11,7 @@ export interface Category {
   }
   
   export interface FormData {
+    status: string;
     title: string;
     description: string;
     price: string;

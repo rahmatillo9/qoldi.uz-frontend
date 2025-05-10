@@ -2,12 +2,27 @@
     "Navbar": {
     "brand": "Onlayn Bozor",
     "home": "Bosh sahifa",
-    "cart": "Savat",
+    "messages": "Xabarlar",
     "profile": "Profil",
     "login": "Kirish",
     "signUp": "Ro‘yxatdan o‘tish",
-    "logout": "Chiqish"
+    "logout": "Chiqish",
+     "menu": "Menyu",
+     "favorites": "Sevimlilar",
+     "addProduct": "Mahsulot qo'shish"
   },
+
+
+  
+    "Footer": {
+      "logo": "Onlayn Bozor",
+      "about": "Biz Haqimizda",
+      "contact": "Aloqa",
+      "terms": "Shartlar va Qoidalari",
+      "copyright": "Barcha huquqlar himoyalangan"
+    },
+
+
 
     "ThemeSwitch": {
     "switchToDark": "Qorong'i rejimga o'tish",
@@ -72,7 +87,8 @@
     "noCode": "Kod kelmadi?",
     "resend": "Qayta yuborish",
     "resendWithCooldown": "Qayta yuborish ({cooldown}s)",
-    "error": "Tasdiqlash amalga oshmadi. Iltimos, qayta urinib ko‘ring."
+    "error": "Tasdiqlash amalga oshmadi. Iltimos, qayta urinib ko‘ring.",
+    "verifyLater": "Keyinroq Tasdiqlash"
   },
 
 
@@ -103,7 +119,8 @@
     "saving": "Saqlanmoqda...",
     "publishing": "E’lon qilinmoqda...",
     "error": "Mahsulotni yaratish amalga oshmadi. Iltimos, qayta urinib ko‘ring.",
-    "imageUploadError": "Rasmni yuklashda xatolik yuz berdi: {{name}}"
+    "imageUploadError": "Rasmni yuklashda xatolik yuz berdi: {{name}}",
+    "loadingCategories": "Kategoriyalar yuklanmoqda..."
     },
   "ImageUploader": {
     "dragAndDrop": "Rasmlaringizni bu yerga sudrab olib keling",
@@ -128,7 +145,25 @@
     "nophoto": "Rasm yo'q",
       "available": "Sotuvda",
     "sold": "Sotildi",
-    "loadingLocation": "Manzil yuklanmoqda..."
+    "loadingLocation": "Manzil yuklanmoqda...",
+    "markSold": "Sotuvda",
+    "markAvailable": "Sotilgan",
+    "searchAndFilter": "Qidiruv va Filtrlash",
+    "searchLabel": "Sarlavha bo'yicha qidirish",
+    "searchPlaceholder": "Mahsulot sarlavhasini kiriting (masalan, telefon)",
+    "minPriceLabel": "Minimal Narx",
+    "minPricePlaceholder": "Minimal narxni kiriting",
+    "maxPriceLabel": "Maksimal Narx",
+    "maxPricePlaceholder": "Maksimal narxni kiriting",
+    "categoryLabel": "Kategoriya",
+    "selectCategory": "Kategoriyani tanlang",
+    "applyFilters": "Filtrlarni Qo'llash",
+    "clearFilters": "Filtrlarni Tozalash",
+    "errorLoadingProducts": "Mahsulotlarni yuklashda xatolik",
+    "noProductsFound": "Mahsulotlar topilmadi",
+    "edit": "Tahrirlash",
+    "delete": "O'chirish",
+    "confirmDelete": "Haqiqatan ham ushbu mahsulotni o'chirmoqchimisiz?"
   },
 
   "ProfilePage": {
@@ -141,11 +176,238 @@
     "save": "Saqlash",
     "cancel": "Bekor qilish",
     "userProducts": "Foydalanuvchi mahsulotlari",
+    "noProducts": "Hozircha mahsulotlar mavjud emas",
+    "updatingStatus": "Yangilanmoqda...",
+    "errorSendingCode": "Tasdiq kodi yuborishda xatolik",
+    "sendingCode": "Kod Yuborilmoqda..."
+  },
+
+  "ForgotPassword": {
+    "title": "Parolni tiklash",
+    "emailPlaceholder": "Emailingizni kiriting",
+    "submit": "Yuborish",
+    "sending": "Yuborilmoqda...",
+    "emailSent": "Emailingizga kod yuborildi!",
+    "error": "Xatolik yuz berdi. Emailni tekshiring.",
+    "backToLogin": "Kirish sahifasiga qaytish"
+  },
+  "ResetPassword": {
+    "title": "Yangi parol o'rnatish",
+    "resetCodePlaceholder": "Emailga kelgan kodni kiriting",
+    "newPasswordPlaceholder": "Yangi parolni kiriting",
+    "submit": "Tasdiqlash",
+    "submitting": "Tasdiqlanmoqda...",
+    "passwordResetSuccess": "Parol muvaffaqiyatli yangilandi!",
+    "error": "Xatolik yuz berdi. Kod yoki parolni tekshiring.",
+    "backToLogin": "Kirish sahifasiga qaytish"
+  },
+
+  "ProductDetail": {
+    "loading": "Yuklanmoqda...",
+    "productNotFound": "Mahsulot topilmadi",
+    "errorLoadingProduct": "Mahsulotni yuklashda xatolik yuz berdi",
+    "noImages": "Rasmlar mavjud emas",
+    "currency": "so'm",
+    "available": "Sotuvda",
+    "sold": "Sotildi",
+    "category": "Kategoriya",
+    "description": "Tavsif",
+    "location": "Joylashuv",
+    "locationOnMap": "Xaritada joylashuv",
+        "sendMessage": "Sotuvchiga xabar yuborish",
+    "messageSent": "Xabar yuborildi!",
+    "loadingMap": "Xarita yuklanmoqda...",
+     "coordinates": "Koordinatalar",
+     "expandMap": "Kengaytirilgan xarita", 
+      "clickToExpand": "Kengaytirish uchun bosing"
+  },
+
+  "UserProfilePage": {
+    "loading": "Yuklanmoqda...",
+    "userNotFound": "Foydalanuvchi topilmadi",
+    "errorLoadingData": "Ma'lumotlarni yuklashda xatolik yuz berdi",
+    "noBio": "Bio mavjud emas",
+    "userProducts": "Foydalanuvchi mahsulotlari",
     "noProducts": "Hozircha mahsulotlar mavjud emas"
+  },
+
+  "LanguageSwitcher": {
+    "uzbek": "O'zbek",
+    "russian": "Rus",
+    "english": "Ingliz"
+  },
+
+  "Chat": {
+    "loadingProduct": "Mahsulot yuklanmoqda...",
+    "currency": "so'm",
+    "typeMessage": "Xabar yozing..."
+  },
+
+  "chat2":{
+    "loading": "Yuklanmoqda...",
+    "chatNotFound": "Chat topilmadi",
+    "typeMessage": "Xabar yozing..."
+  },
+
+  "Messages": {
+    "messages": "Xabarlar",
+    "loading": "Yuklanmoqda...",
+    "noChats": "Xabarlar mavjud emas",
+   "deleteSelectedChatsWarning": "Tanlangan chatlarni o'chirishni xohlaysizmi? Ushbu chatlarga tegishli barcha xabarlar ham o'chiriladi.", 
+   "deleteSelectedChats": "Tanlangan chatlarni o'chirish" ,
+   "productInfo": "Mahsulot haqida",
+    "description": "Tavsif",
+    "price": "Narx",
+    "status": "Holat",
+    "available": "Mavjud",
+    "sold": "Sotilgan",
+    "currency": "so'm"
+  },
+
+  
+    "Favorite": {
+      "title": "Mahsulotlar",
+      "noProducts": "Mahsulotlar mavjud emas.",
+      "loading": "Yuklanmoqda...",
+      "loadMore": "Yana yuklash",
+      "errorLoadingFavorites": "Favoritlarni yuklashda xato yuz berdi.",
+      "noFavorites": "Sizda hali favoritlar yo'q.",
+      "favorites": "Mening sevimlilarim 😍",
+      "showFavorites": "Favoritlarni ko'rsatish",
+      "hideFavorites": "Favoritlarni yashirish"
+    
+  },
+
+  
+  
+    "CategoriesPage": {
+      "title": "Kategoriyalar",
+      "loading": "Kategoriyalar yuklanmoqda...",
+      "noCategories": "Kategoriyalar mavjud emas.",
+      "error": "Kategoriyalarni yuklashda xatolik yuz berdi."
+    },
+    "CategoryProductsPage": {
+      "title": "{categoryName} kategoriyasidagi mahsulotlar",
+      "loading": "Mahsulotlar yuklanmoqda...",
+      "noCategory": "Kategoriya topilmadi.",
+      "noProducts": "Ushbu kategoriyada mahsulotlar topilmadi.",
+      "error": "Mahsulotlarni yuklashda xatolik yuz berdi."
+    },
+  
+
+ 
+      "EditProductPage": {
+        "titleStep1": "Mahsulotni tahrirlash",
+        "descriptionStep1": "Mahsulot tafsilotlarini yangilang",
+        "titleStep2": "Mahsulot rasmlarini yangilash",
+        "descriptionStep2": "Mahsulot uchun rasmlarni qo'shing yoki o'chiring",
+        "productInformation": "Mahsulot haqida ma'lumot",
+        "productImages": "Mahsulot rasmlari",
+        "existingImages": "Mavjud rasmlar",
+        "loadingCategories": "Kategoriyalar yuklanmoqda...",
+        "saving": "Saqlanmoqda...",
+        "continueToImages": "Rasmlarga o'tish",
+        "backToDetails": "Tafsilotlarga qaytish",
+        "updating": "Yangilanmoqda...",
+        "updateProduct": "Mahsulotni yangilash",
+        "error": "Nimadir xato bo'ldi",
+        "errorNoImages": "Kamida bitta rasm bo'lishi kerak",
+        "imageUploadError": "Rasmni yuklashda xatolik: {name}",
+        "imageDeleteError": "Rasmni o'chirishda xatolik",
+         "loadingImages": "Rasmlar yuklanmoqda...",
+    "noImages": "Rasmlar mavjud emas",
+    "errorLoadingImages": "Rasmlarni yuklashda xatolik",
+    "confirmDeleteImage": "Bu rasmni o'chirishga ishonchingiz komilmi?"
+
+      },
+  
+  "Search": {
+    "searchTitle": "Mahsulotlarni qidirish",
+    "searchPlaceholder": "Sarlavha bo'yicha qidirish (masalan, telefon, kompyuter)",
+    "minPricePlaceholder": "Minimal narx",
+    "maxPricePlaceholder": "Maksimal narx",
+    "searchButton": "Qidirish",
+    "loading": "Yuklanmoqda...",
+    "error": "Mahsulotlarni qidirishda xatolik",
+    "noResults": "Hech qanday mahsulot topilmadi"
+  },
+  
+   "SearchPage": {
+    "searchPlaceholder": "Mahsulot nomini kiriting...",
+    "minPricePlaceholder": "Minimal narx",
+    "maxPricePlaceholder": "Maksimal narx",
+    "selectCategory": "Kategoriyani tanlang",
+    "search": "Qidirish"
+    
+  },
+
+  "AboutPage": {
+    "title": "Loyiha Haqida",
+    "description": "Bu loyiha zamonaviy veb-texnologiyalar yordamida ishlab chiqilgan bo‘lib, real vaqt (real-time) imkoniyatlarini qo‘llab-quvvatlaydi. Loyihaning asosiy maqsadi — Uchkurgan shahri aholisi uchun qulay, xavfsiz va zamonaviy onlayn bozor yaratish, shuningdek foydalanuvchilarga interaktiv va sodda xizmatlar orqali qulaylik taqdim etishdir. Loyiha Rahmatillo (Butcher) tomonidan mustaqil ishlab chiqilgan.",
+    "author": "Rahmatillo (Butcher) tomonidan ishlab chiqildi",
+    "contactTitle": "Aloqa",
+    "email": "ismoilsayfiddinov06@gmail.com",
+    "phone": "+998 93 268 82 78",
+    "telegram": "@PPES571",
+    "copyright": "Barcha huquqlar himoyalangan"
+  },
+
+  "TermsPage": {
+    "title": "Foydalanish Shartlari",
+    "intro": "Quyidagi qoidalar bizning onlayn bozor platformamizdan xavfsiz va adolatli foydalanishingiz uchun mo‘ljallangan.",
+    "rules": [
+      "Foydalanuvchilar faqat haqiqatga mos va qonuniy mahsulotlarni joylashtirishlari mumkin.",
+      "Soxta yoki yolg‘on ma’lumotlar berish taqiqlanadi.",
+      "Boshqa foydalanuvchilarning sha’niga tegadigan, haqoratli yoki spam harakatlar qat’iyan man etiladi.",
+      "To‘lov va yetkazib berish masalalarida halollik ustuvor bo‘lishi shart.",
+      "Platformani noqonuniy maqsadlarda ishlatish taqiqlanadi."
+    ],
+    "warning": "Har qanday qoida buzilishi aniqlanganda, sizning hisobingiz ogohlantirilmasdan o‘chirilishi mumkin. Biz foydalanuvchilarning ishonchi va xavfsizligi uchun qat’iy harakat qilamiz.",
+    "copyright": "Rahmatillo (Butcher) — Barcha huquqlar himoyalangan"
+  },
+
+
+  "PrivacyPage": {
+    "title": "Maxfiylik Siyosati",
+    "description": "Biz sizning maxfiyligingizni himoya qilishga sadoqat bilan qarashimiz. Ushbu siyosat bizning onlayn bozor platformasida shaxsiy ma’lumotlaringizni qanday yig‘ib, ishlatishimiz va himoyalashimizni tushuntiradi.",
+    "policy1": "Faqat xizmat ishlaydigan ma’lumotlarni yig‘amiz.",
+    "policy2": "Sizning ma’lumotlaringiz roziligizsiz uchinchi shaxslar bilan almashinmaydi.",
+    "policy3": "Ma’lumotlaringizni istalgan vaqtda o‘chirishni so‘rashingiz mumkin, biz bilan bog‘laning.",
+    "contact": "Har qanday savol uchun biz bilan bog‘laning:",
+    "email": "ismoilsayfiddinov06@gmail.com",
+    "copyright": "Rahmatillo (Butcher) — Barcha huquqlar himoyalangan",
+    "phone": "+998 93 268 82 78",
+    "telegram": "@PPES571"
+  },
+
+  "Common": {
+    "back": "Orqaga"
+  },
+
+  "NotFound": {
+    "title": "Sahifa Topilmadi",
+    "description": "Kechirasiz, siz qidirayotgan sahifa mavjud emas. Iltimos, orqaga qayting yoki URL manzilini tekshiring."
+  },
+
+  "LandingPage": {
+    "title": "Onlayn Bozoriga Xush Kelibsiz",
+    "description": "Mahsulotlarni kashf eting, ro'yxatdan o'ting va istalgan vaqt yordam oling.",
+    "searchTitle": "Mahsulotlarni Qidirish",
+    "searchDescription": "Kerakli mahsulotni tezkor qidiruv bilan toping.",
+    "exploreProducts": "Mahsulotlarni Ko'rish",
+    "registerTitle": "Ro'yxatdan O'tish",
+    "registerDescription": "Bizga qo'shiling va sotish yoki xarid qilishni boshlang.",
+    "signUp": "Ro'yxatdan O'tish",
+    "supportTitle": "Yordam Kerakmi?",
+    "supportDescription": "Telegram orqali tezkor yordam uchun bog'laning.",
+    "contactSupport": "@PPES571 bilan Aloqa",
+    "copyright": "Rahmatillo (Butcher) — Barcha huquqlar himoyalangan"
+  },
+
+
+  "Metadata": {
+    "title": "Onlayn Bozori",
+    "description": "Hammaga mahsulotlarini ulashish va sotib olish uchun platforma"
   }
 
-  
-
-  
-  
   }

@@ -17,7 +17,7 @@ export default function SuccessMessage() {
       <p className="text-gray-600 dark:text-gray-400 mb-6">{t("successDescription")}</p>
       <Button
         className="bg-teal-600 dark:bg-teal-500 text-white hover:bg-teal-700 dark:hover:bg-teal-400"
-        onClick={() => router.push("/my-products")}
+        onClick={() => router.push("/pofile")}
       >
         {t("viewProducts")}
       </Button>

@@ -4,10 +4,12 @@ import { useState, useRef } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import API from "@/lib/axios"
-import { ArrowRight, ShoppingBag } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Button, Input } from "@heroui/react"
 import { useTranslations } from "next-intl"
 import confetti from "canvas-confetti"
+import RBLogo from "@/ui/components/icons/logo"
+import BackButton from "@/ui/components/buttons/exit"
 
 export default function LoginPage() {
   const t = useTranslations("LoginPage")
@@ -44,7 +46,7 @@ export default function LoginPage() {
       localStorage.removeItem("pendingVerificationEmail")
       // Trigger confetti on successful login
       handleConfetti()
-      router.push("/profile")
+      router.replace("/profile")
     } catch (err: any) {
       setError(err.response?.data?.message || t("error"))
     } finally {
@@ -53,15 +55,18 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen   flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+           <div className="flex items-center justify-between mb-6">
+            <BackButton/>
+            </div>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
-          <ShoppingBag className="h-12 w-12 text-teal-600 dark:text-teal-300" />
+          <RBLogo/>
         </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-gray-50">
+        <h2 className="mt-6 text-center text-3xl font-extrabold ">
           {t("title")}
         </h2>
-        <p className="mt-2 text-center text-sm text-gray-500 dark:text-gray-400">
+        <p className="mt-2 text-center text-sm ">
           {t("noAccount")}{" "}
           <Link href="/register" className="font-medium text-teal-600 dark:text-teal-300 hover:text-teal-700 dark:hover:text-teal-400">
             {t("createAccount")}
@@ -70,7 +75,7 @@ export default function LoginPage() {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white dark:bg-gray-800 py-8 px-4 shadow-md rounded-xl sm:px-10">
+        <div className="backdrop-blur-md bg-black/30 border-b border-white/10  py-8 px-4 shadow-md rounded-xl sm:px-10">
           {error && (
             <div className="mb-4 bg-red-50 dark:bg-red-900/30 border-l-4 border-red-500 dark:border-red-400 p-4 rounded-md">
               <div className="flex">

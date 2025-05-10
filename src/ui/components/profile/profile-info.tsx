@@ -3,20 +3,23 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 import { Button, Input } from "@heroui/react";
 import Avatar from "@/ui/components/avatar";
 import { ProfileInfoProps } from "./taype";
-
-
+import API from "@/lib/axios";
 
 export default function ProfileInfo({ user, onUpdate }: ProfileInfoProps) {
   const t = useTranslations("ProfilePage");
+  const router = useRouter();
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     username: user.username,
     bio: user.bio || "",
     avatar: null as File | null,
   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -28,15 +31,37 @@ export default function ProfileInfo({ user, onUpdate }: ProfileInfoProps) {
   const handleUpdate = async () => {
     const updatedUser = {
       username: formData.username,
-      bio: formData.bio || null,
+      bio: formData.bio || undefined,
       avatar: formData.avatar ? URL.createObjectURL(formData.avatar) : user.avatar,
     };
     await onUpdate(updatedUser, formData.avatar);
     setIsEditing(false);
   };
 
+  const handleVerifyEmail = async () => {
+    setLoading(true);
+    setError("");
+
+    try {
+      // Kodni qayta yuborish
+      await API.post("/users/send-email-code", { email: user.email });
+      // Emailni localStorage'ga saqlash (VerifyEmailPage uchun)
+      if (user.email) {
+        localStorage.setItem("pendingVerificationEmail", user.email);
+      } else {
+        console.error("User email is undefined");
+      }
+      // Email tasdiqlash sahifasiga yo'naltirish
+      router.push("/verify-email");
+    } catch (err: any) {
+      setError(err.response?.data?.message || t("errorSendingCode"));
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="rounded-lg p-6 mb-8 backdrop-blur-md bg-black/30 border-b  border-white/10 shadow-md">
+    <div className="rounded-lg p-6 mb-8 backdrop-blur-md bg-black/30 border-b border-white/10 shadow-md">
       <div className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
         <div className="relative">
           {isEditing ? (
@@ -49,10 +74,9 @@ export default function ProfileInfo({ user, onUpdate }: ProfileInfoProps) {
                 }
                 size={120}
                 bordered={true}
-             
                 fallbackText={user.username.charAt(0).toUpperCase()}
               />
-              <label className="absolute bottom-0 right-0 bg-blue-500  rounded-full p-2 cursor-pointer hover:bg-blue-600">
+              <label className="absolute bottom-0 right-0 bg-blue-500 rounded-full p-2 cursor-pointer hover:bg-blue-600">
                 <input
                   type="file"
                   accept="image/*"
@@ -80,7 +104,6 @@ export default function ProfileInfo({ user, onUpdate }: ProfileInfoProps) {
               src={`${process.env.NEXT_PUBLIC_API_URL}${user.avatar}`}
               size={120}
               bordered={true}
-
               fallbackText={user.username.charAt(0).toUpperCase()}
             />
           )}
@@ -107,21 +130,28 @@ export default function ProfileInfo({ user, onUpdate }: ProfileInfoProps) {
               <div className="flex items-center space-x-2">
                 <span className="">{user.email}</span>
                 {!user.isEmailConfirmed && (
-                  <span className="text-red-500 text-sm font-medium bg-red-100 dark:bg-red-900 px-2 py-1 rounded">
-                    {t("emailNotConfirmed")}
-                  </span>
+                  <button
+                    onClick={handleVerifyEmail}
+                    disabled={loading}
+                    className="text-red-500 text-sm font-medium bg-red-100 dark:bg-red-900/30 px-2 py-1 rounded hover:bg-red-200 dark:hover:bg-red-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {loading ? t("sendingCode") : t("emailNotConfirmed")}
+                  </button>
                 )}
               </div>
+              {error && (
+                <p className="mt-2 text-sm text-red-500">{error}</p>
+              )}
               <div className="mt-4 flex space-x-2 justify-center md:justify-start">
                 <Button
                   onClick={handleUpdate}
-                  className="bg-blue-500 hover:bg-blue-600 "
+                  className="bg-blue-500 hover:bg-blue-600"
                 >
                   {t("save")}
                 </Button>
                 <Button
                   onClick={() => setIsEditing(false)}
-                  className="bg-gray-500 hover:bg-gray-600 "
+                  className="bg-gray-500 hover:bg-gray-600"
                 >
                   {t("cancel")}
                 </Button>
@@ -129,23 +159,30 @@ export default function ProfileInfo({ user, onUpdate }: ProfileInfoProps) {
             </>
           ) : (
             <>
-              <h1 className="text-2xl md:text-3xl font-bold ">
+              <h1 className="text-2xl md:text-3xl font-bold">
                 {user.username}
               </h1>
               <div className="flex items-center justify-center md:justify-start space-x-2 mt-2">
                 <span className="">{user.email}</span>
                 {!user.isEmailConfirmed && (
-                  <span className="text-red-500 text-sm font-medium  dark:bg-red-900 px-2 py-1 rounded">
-                    {t("emailNotConfirmed")}
-                  </span>
+                  <button
+                    onClick={handleVerifyEmail}
+                    disabled={loading}
+                    className="text-red-500 text-sm font-medium dark:bg-red-900/30 px-2 py-1 rounded hover:bg-red-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {loading ? t("sendingCode") : t("emailNotConfirmed")}
+                  </button>
                 )}
               </div>
-              <p className=" mt-2">
+              {error && (
+                <p className="mt-2 text-sm text-red-500">{error}</p>
+              )}
+              <p className="mt-2">
                 {user.bio || t("noBio")}
               </p>
               <Button
                 onClick={() => setIsEditing(true)}
-                className="mt-4 bg-blue-500 hover:bg-blue-600 "
+                className="mt-4 bg-blue-500 hover:bg-blue-600"
               >
                 {t("editProfile")}
               </Button>

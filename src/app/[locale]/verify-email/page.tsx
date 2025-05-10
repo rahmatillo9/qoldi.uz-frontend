@@ -1,4 +1,5 @@
-"use client"
+
+'use client'
 
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
@@ -8,6 +9,7 @@ import { CheckCircle, ShoppingBag } from "lucide-react"
 import { Button, Input } from "@heroui/react"
 import { useTranslations } from "next-intl"
 import confetti from "canvas-confetti"
+import BackButton from "@/ui/components/buttons/exit"
 
 export default function VerifyEmailPage() {
   const t = useTranslations("VerifyEmailPage")
@@ -86,8 +88,17 @@ export default function VerifyEmailPage() {
     }
   }
 
+  const handleLaterVerification = () => {
+    if (!loading) {
+      router.push("/login")
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen backdrop-blur-md bg-black/30 border-b border-white/10 shadow-md flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="flex items-center justify-between mb-6">
+        <BackButton />
+      </div>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
           <ShoppingBag className="h-12 w-12 text-teal-600 dark:text-teal-300" />
@@ -163,6 +174,13 @@ export default function VerifyEmailPage() {
                     {resendCooldown > 0 ? t("resendWithCooldown", { cooldown: resendCooldown }) : t("resend")}
                   </button>
                 </p>
+                <Button
+                  onClick={handleLaterVerification}
+                  disabled={loading}
+                  className="mt-4 w-full backdrop-blur-md bg-black/50 border border-white/10 rounded-md px-4 py-2 text-teal-400 hover:bg-gray-700/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {t("verifyLater")}
+                </Button>
               </div>
             </>
           )}

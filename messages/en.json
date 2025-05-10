@@ -1,12 +1,24 @@
 {
     "Navbar": {
+      "messages": "Xabarlar",
     "brand": "MarketPlace",
     "home": "Home",
     "cart": "Cart",
     "profile": "Profile",
     "login": "Login",
     "signUp": "Sign Up",
-    "logout": "Logout"
+    "logout": "Logout",
+     "menu": "Menu",
+     "favorites": "Favorites",
+     "addProduct": "Add Product"
+  },
+
+  "Footer": {
+    "logo": "Online Market",
+    "about": "About Us",
+    "contact": "Contact",
+    "terms": "Terms & Conditions",
+    "copyright": "All rights reserved"
   },
 
     "ThemeSwitch": {
@@ -71,7 +83,8 @@
     "noCode": "Didn't receive the code?",
     "resend": "Resend",
     "resendWithCooldown": "Resend ({cooldown}s)",
-    "error": "Verification failed. Please try again."
+    "error": "Verification failed. Please try again.",
+    "verifyLater": "Verify later"
   },
 
 
@@ -101,7 +114,8 @@
     "publishProduct": "Publish Product",
     "saving": "Saving...",
     "publishing": "Publishing...",
-    "error": "Failed to create product. Please try again."
+    "error": "Failed to create product. Please try again.",
+    "loadingCategories": "Loading categories..."
   },
   "ImageUploader": {
     "dragAndDrop": "Drag and drop your images here",
@@ -126,7 +140,27 @@
     "nophoto": "No photo",
       "available": "Available",
     "sold": "Sold",
-    "loadingLocation": "Loading location..."
+    "loadingLocation": "Loading location...",
+    "updatingStatus": "Updating...",
+    "markSold": "available",
+    "markAvailable": "sold",
+    "searchAndFilter": "Search and Filter",
+    "searchLabel": "Search by Title",
+    "searchPlaceholder": "Enter product title (e.g., phone)",
+    "minPriceLabel": "Min Price",
+    "minPricePlaceholder": "Enter min price",
+    "maxPriceLabel": "Max Price",
+    "maxPricePlaceholder": "Enter max price",
+    "categoryLabel": "Category",
+    "selectCategory": "Select a category",
+    "applyFilters": "Apply Filters",
+    "clearFilters": "Clear Filters",
+    "errorLoadingProducts": "Error loading products",
+    "noProductsFound": "No products found",
+    "edit": "Edit",
+     "delete": "Delete",
+    "confirmDelete": "Are you sure you want to delete this product?"
+    
   },
 
   "ProfilePage": {
@@ -139,9 +173,247 @@
     "save": "Save",
     "cancel": "Cancel",
     "userProducts": "User Products",
+    "noProducts": "No products found",
+    "errorSendingCode": "Error sending verification code",
+    "sendingCode": "Sending Code..."
+  },
+
+
+  "ForgotPassword": {
+    "title": "Password Recovery",
+    "emailPlaceholder": "Enter your email",
+    "submit": "Send",
+    "sending": "Sending...",
+    "emailSent": "Email sent!",
+    "error": "Error. Please check your email.",
+    "backToLogin": "Back to login page"
+  },
+  "ResetPassword": {
+    "title": "Reset Password",
+    "resetCodePlaceholder": "Enter reset code",
+    "newPasswordPlaceholder": "Enter new password",
+    "submit": "Confirm",
+    "submitting": "Submitting...",
+    "passwordResetSuccess": "Password successfully updated!",
+    "error": "Error. Please check the code and password.",
+    "backToLogin": "Back to login page"
+  },
+
+  "ProductDetail": {
+    "loading": "Loading...",
+    "productNotFound": "Product not found",
+    "errorLoadingProduct": "Error loading product",
+    "noImages": "No images",
+    "currency": "sum",
+    "available": "Available",
+    "sold": "Sold",
+    "category": "Category",
+    "description": "Description",
+    "location": "Location",
+    "locationOnMap": "Location on map",
+        "sendMessage": "Send message to seller",
+    "messageSent": "Message sent!",
+    "loadingMap": "Loading map...",
+     "coordinates": "Coordinates",
+     "expandMap": "Expand map", 
+      "clickToExpand": "Click to expand"
+  },
+
+  "UserProfilePage": {
+    "loading": "Loading...",
+    "userNotFound": "User not found",
+    "errorLoadingData": "Error loading data",
+    "noBio": "No bio",
+    "userProducts": "User Products",
     "noProducts": "No products found"
+  },
+
+
+  "LanguageSwitcher": {
+    "uzbek": "Uzbek",
+    "russian": "Russian",
+    "english": "English"
+  },
+
+
+  "Chat": {
+    "loadingProduct": "Loading product...",
+    "currency": "sum",
+    "typeMessage": "Type a message..."
+  },
+
+  "chat2":{
+    "loading": "Loading...",
+    "chatNotFound": "Chat not found",
+    "typeMessage": "Type a message..."
+  },
+
+  "Messages": {
+    "messages": "Messages",
+    "loading": "Loading...",
+    "noChats": "No chats available",
+    "deleteSelectedChatsWarning": "Are you sure you want to delete the selected chats? All messages in these chats will also be deleted.", 
+"deleteSelectedChats": "Delete Selected Chats",
+"productInfo": "Product Info",
+    "description": "Description",
+    "price": "Price",
+    "status": "Status",
+    "available": "Available",
+    "sold": "Sold",
+    "currency": "USD"
+
+  },
+
+
+  
+    "Favorite": {
+      "title": "Products",
+      "noProducts": "No products available.",
+      "loading": "Loading...",
+      "loadMore": "Load More",
+      "errorLoadingFavorites": "Error loading favorites.",
+      "noFavorites": "You have no favorites yet.",
+      "favorites": "My Favorites 😍",
+      "showFavorites": "Show Favorites",
+      "hideFavorites": "Hide Favorites"
+    },
+
+
+
+    
+      "CategoriesPage": {
+        "title": "Categories",
+        "loading": "Loading categories...",
+        "noCategories": "No categories available.",
+        "error": "Failed to load categories."
+      },
+      "CategoryProductsPage": {
+        "title": "Products in {categoryName}",
+        "loading": "Loading products...",
+        "noCategory": "Category not found.",
+        "noProducts": "No products found in this category.",
+        "error": "Failed to load products."
+       
+      },
+
+
+
+
+    
+  "EditProductPage": {
+    "titleStep1": "Edit Product",
+    "descriptionStep1": "Update the details of your product",
+    "titleStep2": "Update Product Images",
+    "descriptionStep2": "Add or remove images for your product",
+    "productInformation": "Product Information",
+    "productImages": "Product Images",
+    "existingImages": "Existing Images",
+    "loadingCategories": "Loading categories...",
+    "saving": "Saving...",
+    "continueToImages": "Continue to Images",
+    "backToDetails": "Back to Details",
+    "updating": "Updating...",
+    "updateProduct": "Update Product",
+    "error": "Something went wrong",
+    "errorNoImages": "At least one image is required",
+    "imageUploadError": "Failed to upload image: {name}",
+    "imageDeleteError": "Failed to delete image",
+    "confirmDeleteImage": "Are you sure you want to delete this image?" ,
+    "loadingImages": "Loading images...",
+    "noImages": "No images available",
+    "errorLoadingImages": "Error loading images"
+
+
+  },
+
+
+"Search": {
+  "searchTitle": "Search Products",
+  "searchPlaceholder": "Search by title (e.g., phone, computer)",
+  "minPricePlaceholder": "Minimum price",
+  "maxPricePlaceholder": "Maximum price",
+  "searchButton": "Search",
+  "loading": "Loading...",
+  "error": "Error while searching products",
+  "noResults": "No products found"
+},
+
+  
+"SearchPage": {
+    "searchPlaceholder": "Enter product name...",
+    "minPricePlaceholder": "Min Price",
+    "maxPricePlaceholder": "Max Price",
+    "selectCategory": "Select Category",
+    "search": "Search"
+  },
+
+
+  "AboutPage": {
+    "title": "About This Project",
+    "description": "This project is developed using modern web technologies and supports real-time capabilities. The main goal of the project is to create a convenient, secure and modern online marketplace for the residents of the city of Uchkurgan, as well as provide convenience to users through interactive and simple services. The project was independently developed by Rahmatillo (Butcher).",
+    "author": "Developed by Rahmatillo (Butcher)",
+    "contactTitle": "Contact",
+    "email": "ismoilsayfiddinov06@gmail.com",
+    "phone": "+998 93 268 82 78",
+    "telegram": "@PPES571",
+    "copyright": "All rights reserved"
+  },
+
+  "TermsPage": {
+    "title": "Terms & Conditions",
+    "intro": "The following rules are designed to ensure safe and fair use of our online marketplace platform.",
+    "rules": [
+      "Users can only post authentic and legal products.",
+      "Providing false or misleading information is prohibited.",
+      "Actions that are offensive, insulting, or spammy towards other users are strictly prohibited.",
+      "Honesty in payment and delivery matters is mandatory.",
+      "Using the platform for illegal purposes is prohibited."
+    ],
+    "warning": "If any rule violation is detected, your account may be terminated without prior notice. We take strict action to ensure user trust and safety.",
+    "copyright": "Rahmatillo (Butcher) — All rights reserved"
+  },
+
+  "PrivacyPage": {
+    "title": "Privacy Policy",
+    "description": "We are committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information on our online marketplace.",
+    "policy1": "We only collect data necessary for service functionality.",
+    "policy2": "Your data is not shared with third parties without consent.",
+    "policy3": "You can request data deletion at any time by contacting us.",
+    "contact": "For any inquiries, feel free to contact:",
+    "email": "ismoilsayfiddinov06@gmail.com",
+    "copyright": "Rahmatillo (Butcher) — All rights reserved",
+     "phone": "+998 93 268 82 78",
+    "telegram": "@PPES571"
+  },
+
+  "Common": {
+    "back": "Back"
+  },
+
+  "NotFound": {
+    "title": "Page Not Found",
+    "description": "Sorry, the page you are looking for does not exist. Please go back or check the URL."
+  },
+
+
+  "LandingPage": {
+    "title": "Welcome to Our Online Marketplace",
+    "description": "Discover products, register easily, and get support anytime.",
+    "searchTitle": "Search Products",
+    "searchDescription": "Find what you need quickly with our powerful search.",
+    "exploreProducts": "Explore Products",
+    "registerTitle": "Sign Up",
+    "registerDescription": "Join us to start selling or buying products.",
+    "signUp": "Sign Up Now",
+    "supportTitle": "Need Help?",
+    "supportDescription": "Contact us on Telegram for quick support.",
+    "contactSupport": "Contact @PPES571",
+    "copyright": "Rahmatillo (Butcher) — All rights reserved"
+  },
+
+  "Metadata": {
+    "title": "Online Marketplace",
+    "description": "A platform for sharing and buying products for everyone"
   }
-
-
 
   }

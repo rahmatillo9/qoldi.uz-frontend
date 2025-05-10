@@ -9,19 +9,12 @@ import API from "@/lib/axios";
 import ProfileInfo from "@/ui/components/profile/profile-info";
 import UserProducts from "@/ui/components/profile/user-products";
 import { Product } from "@/ui/components/products/types";
+import { User } from "@/ui/components/profile/taype";
+import { JwtPayload } from "@/ui/components/add-product/types";
+import ProfileSkeleton from "@/ui/components/skeletons/profile-skeleton";
+import BackButton from "@/ui/components/buttons/exit";
 
-interface User {
-  id: number;
-  username: string;
-  email: string;
-  avatar: string;
-  bio: string | null;
-  isEmailConfirmed: boolean;
-}
 
-interface JwtPayload {
-  id: number;
-}
 
 export default function ProfilePage() {
   const t = useTranslations("ProfilePage");
@@ -115,7 +108,7 @@ export default function ProfilePage() {
       setUser({
         ...user,
         username: updatedUser.username || user.username,
-        bio: updatedUser.bio || null,
+        bio: updatedUser.bio || undefined,
         avatar: updatedUser.avatar || user.avatar,
       });
     } catch (err) {
@@ -124,12 +117,15 @@ export default function ProfilePage() {
     }
   };
 
-  if (loading) return <div className="text-center py-10">{t("loading")}</div>;
+  if (loading) return <ProfileSkeleton />;
   if (error) return <div className="text-center py-10 text-red-500">{error}</div>;
   if (!user) return null;
 
   return (
     <div className="container mx-auto px-4 py-8">
+           <div className="flex items-center justify-between mb-6">
+            <BackButton/>
+            </div>
       <ProfileInfo user={user} onUpdate={handleUpdateProfile} />
       <UserProducts products={products} />
     </div>

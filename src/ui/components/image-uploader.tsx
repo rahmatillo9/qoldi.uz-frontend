@@ -107,11 +107,10 @@ export default function ImageUploader({ images, setImages, maxImages }: ImageUpl
       )}
 
       <div
-        className={`border-2 border-dashed rounded-lg p-6 flex flex-col items-center justify-center cursor-pointer ${
-          dragActive
+        className={`border-2 border-dashed rounded-lg p-6 flex flex-col items-center justify-center cursor-pointer ${dragActive
             ? "border-teal-500 dark:border-teal-400 bg-teal-50 dark:bg-teal-900/30"
             : "border-gray-300 dark:border-gray-700 hover:border-teal-400 dark:hover:border-teal-400"
-        }`}
+          }`}
         onDragEnter={handleDrag}
         onDragLeave={handleDrag}
         onDragOver={handleDrag}
@@ -135,9 +134,12 @@ export default function ImageUploader({ images, setImages, maxImages }: ImageUpl
           className="bg-teal-600 dark:bg-teal-500 text-white hover:bg-teal-700 dark:hover:bg-teal-400"
           size="sm"
           onClick={(e) => {
-            e.stopPropagation()
+            if (e && typeof e.stopPropagation === "function") {
+              e.stopPropagation()
+            }
             onButtonClick()
           }}
+
           disabled={images.length >= maxImages}
         >
           {t("selectImages")}
