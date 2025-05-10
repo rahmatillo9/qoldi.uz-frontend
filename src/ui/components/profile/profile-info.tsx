@@ -53,8 +53,7 @@ export default function ProfileInfo({ user, onUpdate }: ProfileInfoProps) {
       }
       // Email tasdiqlash sahifasiga yo'naltirish
       router.push("/verify-email");
-    } catch (err: any) {
-      setError(err.response?.data?.message || t("errorSendingCode"));
+    } catch (err) {
     } finally {
       setLoading(false);
     }
