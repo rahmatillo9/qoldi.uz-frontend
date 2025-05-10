@@ -55,11 +55,11 @@ export default function LandingPage() {
             <Send size={32} className="text-teal-400 mx-auto animate-pulse" />
             <h3 className="text-xl font-semibold">{t("supportTitle")}</h3>
             <p className="text-sm text-zinc-400">{t("supportDescription")}</p>
-            <a href="https://t.me/PPES571" target="_blank" rel="noopener noreferrer">
+            <Link href="https://t.me/PPES571" target="_blank" rel="noopener noreferrer">
               <Button className="backdrop-blur-md bg-black/50 border border-white/10 rounded-xl px-4 py-2 text-white hover:bg-gray-700/50 transition-colors">
                 {t("contactSupport")}
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
 

@@ -4,6 +4,7 @@
 import { useTranslations } from "next-intl";
 import RBLogo from "@/ui/components/icons/logo";
 import BackButton from "@/ui/components/buttons/exit";
+import Link from "next/link";
 
 export default function AboutPage() {
   const t = useTranslations("AboutPage");
@@ -29,13 +30,13 @@ export default function AboutPage() {
       <div className="mt-10 text-center space-y-4 bg-black/30 border border-white/10 rounded-xl p-6 shadow-md">
         <h2 className="text-2xl font-semibold">{t("contactTitle")}</h2>
         <p>
-          Email: <a href="mailto:ismoilsayfiddinov06@gmail.com" className="text-blue-400 hover:underline">{t("email")}</a>
+          Email: <Link href="mailto:ismoilsayfiddinov06@gmail.com" className="text-blue-400 hover:underline">{t("email")}</Link>
         </p>
         <p>
-          Tel: <a href="tel:+998932688278" className="text-blue-400 hover:underline">{t("phone")}</a>
+          Tel: <Link href="tel:+998932688278" className="text-blue-400 hover:underline">{t("phone")}</Link>
         </p>
         <p>
-          Telegram: <a href="https://t.me/PPES571" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">{t("telegram")}</a>
+          Telegram: <Link href="https://t.me/PPES571" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">{t("telegram")}</Link>
         </p>
         <p className="text-sm pt-2">
           © {new Date().getFullYear()} {t("copyright")}

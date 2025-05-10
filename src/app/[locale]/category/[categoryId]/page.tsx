@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter, useParams } from "next/navigation";
+import {  useParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import API from "@/lib/axios";
 import ProductCard from "@/ui/components/products/product-card";
@@ -14,7 +14,6 @@ import BackButton from "@/ui/components/buttons/exit";
 export default function CategoryProductsPage() {
   const t = useTranslations("CategoryProductsPage");
   const locale = useLocale();
-  const router = useRouter();
   const { categoryId } = useParams();
   const [category, setCategory] = useState<CategoryResponse | null>(null);
   const [loading, setLoading] = useState(false);

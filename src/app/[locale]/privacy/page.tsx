@@ -3,6 +3,7 @@
 
 import BackButton from "@/ui/components/buttons/exit";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export default function PrivacyPage() {
   const t = useTranslations("PrivacyPage");
@@ -26,13 +27,13 @@ export default function PrivacyPage() {
         <div className="text-zinc-400 text-xs pt-4 border-t border-zinc-700">
           <p className="pt-2">{t("contact")}</p>
           <p className="pt-1">
-            Email: <a href="mailto:ismoilsayfiddinov06@gmail.com" className="text-blue-400 hover:underline">{t("email")}</a>
+            Email: <Link href="mailto:ismoilsayfiddinov06@gmail.com" className="text-blue-400 hover:underline">{t("email")}</Link>
           </p>
           <p>
-          Tel: <a href="tel:+998932688278" className="text-blue-400 hover:underline">{t("phone")}</a>
+          Tel: <Link href="tel:+998932688278" className="text-blue-400 hover:underline">{t("phone")}</Link>
         </p>
         <p>
-          Telegram: <a href="https://t.me/PPES571" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">{t("telegram")}</a>
+          Telegram: <Link href="https://t.me/PPES571" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">{t("telegram")}</Link>
         </p>
           <p className="pt-1">
             © {new Date().getFullYear()} {t("copyright")}

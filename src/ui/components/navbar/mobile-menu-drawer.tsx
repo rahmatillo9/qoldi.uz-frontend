@@ -2,7 +2,7 @@
 'use client'
 
 import { useTranslations } from "next-intl";
-import { useRouter, usePathname } from "next/navigation";
+import {  usePathname } from "next/navigation";
 import {
   Drawer,
   DrawerContent,
@@ -31,7 +31,7 @@ export default function MobileMenuDrawer({
 }: MobileMenuDrawerProps) {
   const t = useTranslations("Navbar");
   const pathname = usePathname();
-  const router = useRouter();
+
 
   const isActive = (path: string) => pathname === path;
 

@@ -85,7 +85,7 @@ export default function MapPicker({ onLocationChange, initialLat = 41.3, initial
         style={{ height: "100%", width: "100%" }}
       >
         <TileLayer
-          attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          attribution='© <Link href="https://www.openstreetmap.org/copyright">OpenStreetMap</Link> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <LocationMarker onLocationChange={onLocationChange} />

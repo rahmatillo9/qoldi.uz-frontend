@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { Input, Button } from "@heroui/react";
 import API from "@/lib/axios";
+import Link from "next/link";
 
 
 export default function ResetPasswordPage() {
@@ -72,9 +73,9 @@ export default function ResetPasswordPage() {
           </>
         )}
         <div className="mt-4 text-center">
-          <a href="/login" className="text-blue-400 hover:underline">
+          <Link href="/login" className="text-blue-400 hover:underline">
             {t("backToLogin")}
-          </a>
+          </Link>
         </div>
       </div>
     </div>

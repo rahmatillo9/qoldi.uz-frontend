@@ -2,7 +2,7 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import { useTranslations } from "next-intl";
+
 import { useRouter } from "next/navigation";
 import { jwtDecode } from "jwt-decode";
 import API from "@/lib/axios";
@@ -17,7 +17,6 @@ import BackButton from "@/ui/components/buttons/exit";
 
 
 export default function ProfilePage() {
-  const t = useTranslations("ProfilePage");
   const router = useRouter();
   const [user, setUser] = useState<User | null>(null);
   const [products, setProducts] = useState<Product[]>([]);

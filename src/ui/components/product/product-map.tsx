@@ -73,7 +73,7 @@ export default function ProductMap({ latitude, longitude, title }: ProductMapPro
 
                 <TileLayer
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  attribution='© <Link href="https://www.openstreetmap.org/copyright">OpenStreetMap</Link> contributors'
                 />
                 <Marker
                   position={[latitude, longitude]}
@@ -130,7 +130,7 @@ export default function ProductMap({ latitude, longitude, title }: ProductMapPro
                 >
                   <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    attribution='© <Link href="https://www.openstreetmap.org/copyright">OpenStreetMap</Link> contributors'
                   />
                   <Marker
                     position={[latitude, longitude]}
