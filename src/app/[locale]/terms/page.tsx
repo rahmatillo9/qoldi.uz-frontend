@@ -5,7 +5,7 @@ import { useTranslations, useMessages } from 'next-intl';
 
 export default function TermsPage() {
   const t = useTranslations("TermsPage");
-  const messages = useMessages() as any; // tipini `any` deb olamiz yoki interfeys yaratamiz
+  const messages = useMessages();
 
   const rules: string[] = messages?.TermsPage?.rules || [];
 

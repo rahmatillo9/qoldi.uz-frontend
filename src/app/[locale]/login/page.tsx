@@ -47,7 +47,7 @@ export default function LoginPage() {
       // Trigger confetti on successful login
       handleConfetti()
       router.replace("/profile")
-    } catch (err: any) {
+    } catch (err: ) {
       setError(err.response?.data?.message || t("error"))
     } finally {
       setLoading(false)

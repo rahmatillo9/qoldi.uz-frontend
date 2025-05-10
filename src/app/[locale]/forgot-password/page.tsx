@@ -27,8 +27,7 @@ export default function ForgotPasswordPage() {
       setTimeout(() => {
         router.push("/reset-password");
       }, 2000); // 2 soniyadan keyin yo'naltirish
-    } catch (err: any) {
-      setError(err.response?.data?.message || t("error"));
+    } catch (err) {
     } finally {
       setLoading(false);
     }

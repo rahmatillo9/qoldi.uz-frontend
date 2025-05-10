@@ -35,7 +35,7 @@ interface MapPickerProps {
 }
 
 function LocationMarker({ onLocationChange }: { onLocationChange: (lat: number, lng: number) => void }) {
-  const [position, setPosition] = useState<any | null>(null)
+  const [position, setPosition] = useState<L.LatLng | null>(null)
 
   const map = useMapEvents({
     click(e) {

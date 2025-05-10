@@ -92,7 +92,7 @@ export default function AddProductPage() {
             });
             console.log(`Upload response for ${image.name}:`, response.data);
             console.log(`Successfully uploaded image: ${image.name}`, response.data);
-          } catch (err: any) {
+          } catch (err) {
             console.error(`Failed to upload image ${image.name}:`, err);
             setError(t("imageUploadError", { name: image.name }) || `Rasmni yuklashda xatolik: ${image.name}`);
             setLoading(false);
@@ -111,9 +111,9 @@ export default function AddProductPage() {
           router.push("/profile");
         }, 2000);
       }
-    } catch (err: any) {
+    } catch (err) {
       console.error("Error:", err);
-      setError(err.response?.data?.message || t("error"));
+      
     } finally {
       setLoading(false);
     }

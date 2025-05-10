@@ -90,7 +90,7 @@ export function useChatPage() {
       response?.forEach((msg) => {
         if (
           msg.receiverId === currentUserId &&
-          msg.isRead === false
+          msg.isRead === "false"
         ) {
           
           
@@ -136,7 +136,7 @@ export function useChatPage() {
       chatRoomId: parseInt(chatId),
     };
 
-    socketRef.current?.emit("send_message", messageDto, (response: any) => {
+    socketRef.current?.emit("send_message", messageDto, (response: { error?: string }) => {
       if (response?.error) {
         console.error("Xabar yuborishda xato:", response.error);
         setError("Xabar yuborishda xato yuz berdi.");

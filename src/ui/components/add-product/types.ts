@@ -3,7 +3,7 @@ export interface Category {
     name: string;
     createdAt: string;
     updatedAt: string;
-    products: any[];
+    products: string[];
   }
   
   export interface JwtPayload {

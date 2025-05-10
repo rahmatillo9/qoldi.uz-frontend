@@ -11,7 +11,7 @@ import { ProductMapProps } from "./type";
 import { Button } from "@heroui/react";
 
 // Leaflet ikonkasini sozlash (default ikonka muammosini hal qilish uchun)
-delete (L.Icon.Default.prototype as any)._getIconUrl;
+// Removed invalid property deletion as it is not required
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
   iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",

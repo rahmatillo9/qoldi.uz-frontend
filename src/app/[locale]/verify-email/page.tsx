@@ -68,8 +68,8 @@ export default function VerifyEmailPage() {
       setTimeout(() => {
         router.push("/login")
       }, 2000)
-    } catch (err: any) {
-      setError(err.response?.data?.message || t("error"))
+    } catch (err) {
+
     } finally {
       setLoading(false)
     }
@@ -81,8 +81,7 @@ export default function VerifyEmailPage() {
       setError("")
       await API.post("/users/send-email-code", { email })
       setResendCooldown(60) // Set cooldown to 60 seconds
-    } catch (err: any) {
-      setError(err.response?.data?.message || t("error"))
+    } catch (err) {
     } finally {
       setLoading(false)
     }

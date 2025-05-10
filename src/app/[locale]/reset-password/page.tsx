@@ -28,8 +28,8 @@ export default function ResetPasswordPage() {
       setTimeout(() => {
         router.push("/login");
       }, 2000); // 2 soniyadan keyin yo'naltirish
-    } catch (err: any) {
-      setError(err.response?.data?.message || t("error"));
+    } catch (err) {
+  
     } finally {
       setLoading(false);
     }

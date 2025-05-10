@@ -18,7 +18,7 @@ export interface ChatRoom {
     avatar: string | null;
   };
   product: {
-    images: any;
+    images: string;
     status: string;
     price: ReactNode;
     description: ReactNode;
@@ -36,7 +36,7 @@ export interface ChatInputProps {
 
 
 export interface Message {
-  isRead: any;
+  isRead: string;
   id: number;
   senderId: number;
   receiverId: number;

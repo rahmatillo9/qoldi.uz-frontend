@@ -20,10 +20,10 @@ export default async function LocaleLayout({
 }) {
   // Ensure that the incoming `locale` is valid
   const { locale } = await params;
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale as 'en' | 'ru' | 'uz')) {
     notFound();
   }
-
+  
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen bg-background text-foreground justify-between">

@@ -146,7 +146,7 @@ export const useEditProduct = () => {
                 },
               });
               setExistingImages((prev) => [...prev, response.data]);
-            } catch (err: any) {
+            } catch (err) {
               console.error(`Rasmni yuklashda xato ${image.name}:`, err);
               setFormError(t("imageUploadError", { name: image.name }));
               setLoading(false);
@@ -166,9 +166,9 @@ export const useEditProduct = () => {
           router.push(`/product/${productId}`);
         }, 2000);
       }
-    } catch (err: any) {
+    } catch (err) {
       console.error("Xato:", err);
-      setFormError(err.response?.data?.message || t("error"));
+ 
     } finally {
       setLoading(false);
     }

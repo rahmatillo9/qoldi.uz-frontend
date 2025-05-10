@@ -154,13 +154,17 @@ export function useChat({ isOpen, product}: ChatModalProps) {
       chatRoomId: chatRoomId,
     };
 
-    socketRef.current?.emit("send_message", messageDto, (response: any) => {
-      if (response?.error) {
-        console.error("Xabar yuborishda xato:", response.error);
-      } else {
-        setNewMessage("");
+    socketRef.current?.emit(
+      "send_message",
+      messageDto,
+      (response: { error?: string }) => {
+        if (response?.error) {
+          console.error("Xabar yuborishda xato:", response.error);
+        } else {
+          setNewMessage("");
+        }
       }
-    });
+    );
   };
 
   return {

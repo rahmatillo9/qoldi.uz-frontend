@@ -181,7 +181,7 @@ export default function EditProductPage() {
                 },
               });
               setExistingImages((prev) => [...prev, response.data]);
-            } catch (err: any) {
+            } catch (err) {
               console.error(`Rasmni yuklashda xato ${image.name}:`, err);
               setError(t("imageUploadError", { name: image.name }));
               setLoading(false);
@@ -201,9 +201,8 @@ export default function EditProductPage() {
           router.push(`/product/${productId}`);
         }, 2000);
       }
-    } catch (err: any) {
+    } catch (err) {
       console.error("Xato:", err);
-      setError(err.response?.data?.message || t("error"));
     } finally {
       setLoading(false);
     }

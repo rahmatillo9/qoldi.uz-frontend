@@ -21,17 +21,17 @@ export interface ProductImage {
     name: string;
     createdAt: string;
     updatedAt: string;
-    products?: any[];
+    products?: string[];
   }
   
 export  interface EditProductFormProps {
-    formData: any;
+    formData: string
     categories: Category[];
     step: number;
     setStep: (step: number) => void;
     images: File[];
     setImages: (images: File[]) => void;
-    existingImages: any[];
+    existingImages: string[];
     imagesLoading: boolean;
     loading: boolean;
     formError: string;
