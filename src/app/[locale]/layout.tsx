@@ -9,45 +9,7 @@ import MarketPlaceNavbar from '@/ui/components/navbar/navbar';
 import 'leaflet/dist/leaflet.css';
 import Footer from '@/ui/components/footer';
 import SkyDecorations from '@/ui/components/sky-decorations ';
-import { getTranslations } from 'next-intl/server';
 
-
-// export async function generateMetadata() {
-//   const t = await getTranslations("Metadata");
-
-//   return {
-//     title: t("title"),
-//     description: t("description"),
-//     icons: {
-//       icon: [
-//         { url: "/web-app-manifest-192x192.png", sizes: "192x192", type: "image/png" },
-//         { url: "/web-app-manifest-512x512.png", sizes: "512x512", type: "image/png" },
-//       ],
-//     },
-//     openGraph: {
-//       title: t("title"),
-//       description: t("description"),
-//       url: "https://marketplace.xai.uz",
-//       siteName: "Online Marketplace",
-//       images: [
-//         {
-//           url: "/banner.png", // 1200x630px rasm qo‘shing
-//           width: 1200,
-//           height: 630,
-//           alt: "Online Marketplace banner",
-//         },
-//       ],
-//       type: "website",
-//     },
-//     twitter: {
-//       card: "summary_large_image",
-//       title: t("title"),
-//       description: t("description"),
-//       images: ["/banner.png"],
-//     },
-//     manifest: "/manifest.json",
-//   };
-// }
 
 export default async function LocaleLayout({
   children,

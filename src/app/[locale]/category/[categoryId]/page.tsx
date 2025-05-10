@@ -6,7 +6,7 @@ import { useRouter, useParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import API from "@/lib/axios";
 import ProductCard from "@/ui/components/products/product-card";
-import { CategoryResponse, CategoryName, ProductImage, User, Product } from "@/ui/components/category/type";
+import { CategoryResponse, CategoryName } from "@/ui/components/category/type";
 import BackButton from "@/ui/components/buttons/exit";
 
 

@@ -15,7 +15,7 @@ import ImageUploadStep from "@/ui/components/add-product/image-upload-step";
 import SuccessMessage from "@/ui/components/add-product/success-message";
 import StepIndicator from "@/ui/components/add-product/step-indicator";
 import BackButton from "@/ui/components/buttons/exit";
-import { stat } from "fs";
+
 
 export default function AddProductPage() {
   const t = useTranslations("AddProductPage");

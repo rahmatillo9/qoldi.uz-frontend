@@ -3,9 +3,9 @@
 
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { Location, ProductCardProps } from "./types";
+import { Location } from "./types";
 import ImageCarousel from "./image-carousel";
-import { MapPin, DollarSign, Circle, Heart } from "lucide-react";
+import {  Circle, Heart } from "lucide-react";
 import Avatar from "../avatar";
 import Link from "next/link";
 import API from "@/lib/axios";
