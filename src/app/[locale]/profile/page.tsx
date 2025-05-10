@@ -57,6 +57,8 @@ export default function ProfilePage() {
 
       fetchUser();
     } catch (err) {
+      console.log("Token dekod qilishda xato:", err);
+      
       router.push("/login");
     }
   }, [router]);

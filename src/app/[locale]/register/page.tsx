@@ -58,6 +58,8 @@ export default function RegisterPage() {
       // Redirect to verification page
       router.push("/verify-email")
     } catch (err) {
+      console.log(err);
+      
     
     } finally {
       setLoading(false)

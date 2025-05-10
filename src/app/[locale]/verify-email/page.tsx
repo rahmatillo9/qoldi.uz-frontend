@@ -69,6 +69,7 @@ export default function VerifyEmailPage() {
         router.push("/login")
       }, 2000)
     } catch (err) {
+console.log(err);
 
     } finally {
       setLoading(false)
@@ -82,6 +83,8 @@ export default function VerifyEmailPage() {
       await API.post("/users/send-email-code", { email })
       setResendCooldown(60) // Set cooldown to 60 seconds
     } catch (err) {
+      console.log(err);
+      
     } finally {
       setLoading(false)
     }

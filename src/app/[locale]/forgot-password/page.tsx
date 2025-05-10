@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { Input, Button } from "@heroui/react";
 import API from "@/lib/axios";
 import BackButton from "@/ui/components/buttons/exit";
+import Link from "next/link";
 
 export default function ForgotPasswordPage() {
   const t = useTranslations("ForgotPassword");
@@ -28,6 +29,8 @@ export default function ForgotPasswordPage() {
         router.push("/reset-password");
       }, 2000); // 2 soniyadan keyin yo'naltirish
     } catch (err) {
+      console.log(err);
+      
     } finally {
       setLoading(false);
     }
@@ -65,9 +68,9 @@ export default function ForgotPasswordPage() {
           </>
         )}
         <div className="mt-4 text-center">
-          <a href="/login" className="text-blue-400 hover:underline">
+          <Link href="/login" className="text-blue-400 hover:underline">
             {t("backToLogin")}
-          </a>
+          </Link>
         </div>
       </div>
     </div>

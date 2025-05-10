@@ -30,7 +30,8 @@ export default function ResetPasswordPage() {
         router.push("/login");
       }, 2000); // 2 soniyadan keyin yo'naltirish
     } catch (err) {
-  
+    console.log(err);
+    
     } finally {
       setLoading(false);
     }

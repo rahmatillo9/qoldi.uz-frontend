@@ -48,6 +48,8 @@ export default function LoginPage() {
       handleConfetti()
       router.replace("/profile")
     } catch (err ) {
+      console.log(err);
+      
     } finally {
       setLoading(false)
     }

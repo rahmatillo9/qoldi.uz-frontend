@@ -54,6 +54,8 @@ export default function ProfileInfo({ user, onUpdate }: ProfileInfoProps) {
       // Email tasdiqlash sahifasiga yo'naltirish
       router.push("/verify-email");
     } catch (err) {
+      console.log(err);
+      
     } finally {
       setLoading(false);
     }
