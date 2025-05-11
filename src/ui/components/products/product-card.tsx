@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import {  ProductCardProps } from "./types";
+import { ProductCardProps } from "./types";
 import ImageCarousel from "./image-carousel";
 import { Circle, Heart, Edit, Trash2 } from "lucide-react";
 import Avatar from "../avatar";
@@ -21,10 +21,10 @@ interface ExtendedProductCardProps extends ProductCardProps {
 
 export default function ProductCard({ product, onDelete }: ExtendedProductCardProps) {
   const t = useTranslations("ProductsPage");
-  // const [location, setLocation] = useState<Location>({ city: "Noma'lum", district: "Noma'lum" });
   const [isFavorite, setIsFavorite] = useState(false);
   const [currentUserId, setCurrentUserId] = useState<number | null>(null);
   const [status, setStatus] = useState<"available" | "sold">(product.status as "available" | "sold");
+  const [error, setError] = useState<string | null>(null); // Error holatini qo'shamiz
 
   // JWT token orqali userId ni olish
   useEffect(() => {
@@ -54,24 +54,6 @@ export default function ProductCard({ product, onDelete }: ExtendedProductCardPr
 
     checkFavoriteStatus();
   }, [currentUserId, product.id]);
-
-  // Lokatsiyani olish
-  // useEffect(() => {
-  //   const fetchLocation = async () => {
-  //     try {
-  //       setLoading(true);
-  //       // const result = await getLocationFromCoords(product.latitude, product.longitude);
-  //       // setLocation(result);
-  //     } catch (err) {
-  //       setError("Manzilni aniqlashda xatolik :(");
-  //       console.error(err);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchLocation();
-  // }, [product.latitude, product.longitude]);
 
   // Prop'dan kelgan statusni yangilash
   useEffect(() => {
@@ -112,7 +94,7 @@ export default function ProductCard({ product, onDelete }: ExtendedProductCardPr
       setStatus(newStatus);
     } catch (err) {
       console.error("Statusni o'zgartirishda xato:", err);
-      setError(t("statusUpdateError"));
+      setError(t("statusUpdateError")); // Xatolikni saqlash
     }
   };
 
@@ -134,7 +116,7 @@ export default function ProductCard({ product, onDelete }: ExtendedProductCardPr
       }
     } catch (err) {
       console.error("Mahsulotni o'chirishda xato:", err);
-      setError(t("productDeleteError"));
+      setError(t("productDeleteError")); // Xatolikni saqlash
     }
   };
 
@@ -180,6 +162,9 @@ export default function ProductCard({ product, onDelete }: ExtendedProductCardPr
             <span className="font-medium text-sm sm:text-base">{product.price} {t("currency")}</span>
           </div>
         </Link>
+        {error && (
+          <p className="mt-2 text-sm text-red-500">{error}</p> // Xatolik xabarini ko'rsatish
+        )}
         <div className="absolute top-10 right-4 flex gap-2">
           <Button
             onClick={handleToggleFavorite}
@@ -244,7 +229,3 @@ export default function ProductCard({ product, onDelete }: ExtendedProductCardPr
     </div>
   );
 }
-function setError(arg0: string) {
-  throw new Error("Function not implemented.");
-}
-
