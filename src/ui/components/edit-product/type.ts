@@ -7,12 +7,13 @@ export interface ProductImage {
   }
   
   export interface ImageManagerProps {
-    images: File[];
+    images: File[]; // Yangi yuklanayotgan rasmlar
     setImages: (images: File[]) => void;
-    existingImages: ProductImage[];
+    existingImages: ProductImage[]; // Mavjud rasmlar (odatda serverdan)
     imagesLoading: boolean;
     onDeleteImage: (imageId: number) => void;
   }
+  
 
 
 
@@ -25,7 +26,15 @@ export interface ProductImage {
   }
   
 export  interface EditProductFormProps {
-    formData: string
+    formData: {
+      title: string;
+      description: string;
+      price: string;
+      categoryId: string;
+      latitude: number;
+      longitude: number;
+      status: string;
+    };
     categories: Category[];
     step: number;
     setStep: (step: number) => void;

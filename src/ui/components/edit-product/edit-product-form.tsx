@@ -1,12 +1,13 @@
 
+'use client'
+
 import { useTranslations } from "next-intl";
 import { Card, CardHeader, CardBody, CardFooter, Button, Divider } from "@heroui/react";
 import ProductForm from "@/ui/components/add-product/product-form";
 import StepIndicator from "@/ui/components/add-product/step-indicator";
 import ImageManager from "@/ui/components/edit-product/image-manager";
 import { EditProductFormProps } from "./type";
-
-
+import { ProductImage } from "./type";
 
 export default function EditProductForm({
   formData,
@@ -15,7 +16,7 @@ export default function EditProductForm({
   setStep,
   images,
   setImages,
-  existingImages,
+  existingImages: rawExistingImages,
   imagesLoading,
   loading,
   formError,
@@ -25,6 +26,15 @@ export default function EditProductForm({
   handleSubmit,
 }: EditProductFormProps) {
   const t = useTranslations("EditProductPage");
+
+  // string[] dan ProductImage[] ga aylantirish
+  const existingImages: ProductImage[] = rawExistingImages.map((url, index) => ({
+    id: index + 1, // Vaqtinchalik ID (backenddan kelishi kerak bo'lsa o'zgartiriladi)
+    imageUrl: url, // URL string sifatida keladi
+    productId: 0, // Backenddan kelishi kerak, hozircha 0 qilib qo'yamiz
+    createdAt: new Date().toISOString(), // Vaqtinchalik yaratilgan sana
+    updatedAt: new Date().toISOString(), // Vaqtinchalik yangilangan sana
+  }));
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
@@ -69,7 +79,7 @@ export default function EditProductForm({
             <ImageManager
               images={images}
               setImages={setImages}
-              existingImages={existingImages}
+              existingImages={existingImages} 
               imagesLoading={imagesLoading}
               onDeleteImage={handleDeleteImage}
             />
