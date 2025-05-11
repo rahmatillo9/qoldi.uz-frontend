@@ -90,7 +90,7 @@ export function useChatPage() {
       response?.forEach((msg) => {
         if (
           msg.receiverId === currentUserId &&
-          msg.isRead === "false"
+          msg.isRead === false
         ) {
           
           

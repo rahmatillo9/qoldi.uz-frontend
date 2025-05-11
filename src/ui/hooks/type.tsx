@@ -7,6 +7,7 @@ export interface ChatModalProps {
   }
   
   export interface Message {
+ 
     id: number;
     productId: number;
     senderId: number;

@@ -8,8 +8,6 @@ import ChatMessages from "./chat-messages";
 import ChatInput from "./chat-input";
 import { ChatModalProps } from "./type";
 
-
-
 export default function ChatModal({ isOpen, onClose, product }: ChatModalProps) {
   const { messages, newMessage, setNewMessage, currentUserId, messagesEndRef, handleSendMessage } = useChat({
     isOpen,
@@ -22,8 +20,6 @@ export default function ChatModal({ isOpen, onClose, product }: ChatModalProps) 
 
   return (
     <>
- 
-
       {isOpen && <div className="modal-backdrop" onClick={onClose}></div>}
 
       <Modal

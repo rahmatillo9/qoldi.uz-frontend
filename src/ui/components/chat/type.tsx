@@ -36,7 +36,7 @@ export interface ChatInputProps {
 
 
 export interface Message {
-  isRead: string;
+  isRead: boolean;
   id: number;
   senderId: number;
   receiverId: number;
