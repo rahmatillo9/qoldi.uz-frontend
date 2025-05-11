@@ -9,8 +9,12 @@ interface ImageCarouselProps {
 }
 
 export default function ImageCarousel({ images }: ImageCarouselProps) {
+  
   const [currentIndex, setCurrentIndex] = useState(0);
-    
+  const t = useTranslations("ProductsPage")
+
+; // ✅ HAR DOIM chaqiriladi
+
   const prevImage = () => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
@@ -19,9 +23,7 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
-  
   if (images.length === 0) {
-    const t = useTranslations("ProductsPage");
     return (
       <div className="w-full h-48 bg-gray-200 dark:bg-gray-700 flex items-center justify-center rounded-lg">
         <span className="text-gray-500 dark:text-gray-400">{t("nophoto")}</span>

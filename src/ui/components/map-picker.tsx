@@ -16,17 +16,19 @@ import "leaflet/dist/leaflet.css"
 // Fix Leaflet marker icon issue
 const LeafletInitializer = () => {
   useEffect(() => {
-    const L = require("leaflet")
-    delete L.Icon.Default.prototype._getIconUrl
+    import("leaflet").then((L) => {
+      // Removed unnecessary deletion of _getIconUrl
 
-    L.Icon.Default.mergeOptions({
-      iconRetinaUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png",
-      iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
-      shadowUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
+      L.Icon.Default.mergeOptions({
+        iconRetinaUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png",
+        iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
+        shadowUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
+      })
     })
   }, [])
   return null
 }
+
 
 interface MapPickerProps {
   onLocationChange: (lat: number, lng: number) => void

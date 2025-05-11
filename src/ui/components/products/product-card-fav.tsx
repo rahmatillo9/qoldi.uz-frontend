@@ -3,7 +3,6 @@
 
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { Location } from "./types";
 import ImageCarousel from "./image-carousel";
 import {  Circle, Heart } from "lucide-react";
 import Avatar from "../avatar";
@@ -22,9 +21,9 @@ interface ExtendedProductCardProps {
 
 export default function ProductCard({ favorite, fetchFavorites }: ExtendedProductCardProps) {
   const t = useTranslations("ProductsPage");
-  const [location, setLocation] = useState<Location>({ city: "Noma'lum", district: "Noma'lum" });
+  // const [location, setLocation] = useState<Location>({ city: "Noma'lum", district: "Noma'lum" });
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  // const [error, setError] = useState<string | null>(null);
   const [currentUserId, setCurrentUserId] = useState<number | null>(null);
 
   // JWT token orqali userId ni olish
@@ -40,23 +39,23 @@ export default function ProductCard({ favorite, fetchFavorites }: ExtendedProduc
     }
   }, []);
 
-  // Lokatsiyani olish
-  useEffect(() => {
-    const fetchLocation = async () => {
-      try {
-        setLoading(true);
-        // const result = await getLocationFromCoords(favorite.product.latitude, favorite.product.longitude);
-        // setLocation(result);
-      } catch (err) {
-        setError("Manzilni aniqlashda xatolik :(");
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // // Lokatsiyani olish
+  // useEffect(() => {
+  //   const fetchLocation = async () => {
+  //     try {
+  //       setLoading(true);
+  //       // const result = await getLocationFromCoords(favorite.product.latitude, favorite.product.longitude);
+  //       // setLocation(result);
+  //     } catch (err) {
+  //       setError("Manzilni aniqlashda xatolik :(");
+  //       console.error(err);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchLocation();
-  }, [favorite.product.latitude, favorite.product.longitude]);
+  //   fetchLocation();
+  // }, [favorite.product.latitude, favorite.product.longitude]);
 
   // Favorite holatini toggle qilish
   const handleToggleFavorite = async () => {

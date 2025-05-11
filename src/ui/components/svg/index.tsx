@@ -2,7 +2,10 @@ import React from 'react';
 
 import { cn } from '@/utils';
 
-export interface SvgProp extends React.SVGAttributes<SVGElement> {}
+export interface SvgProp extends React.SVGAttributes<SVGElement> {
+  className?: string;
+  children?: React.ReactNode;
+}
 
 const Svg: React.FC<SvgProp> = ({ className, children, ...props }) => {
   return (

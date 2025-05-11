@@ -3,9 +3,9 @@
 
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { Location, ProductCardProps } from "./types";
+import {  ProductCardProps } from "./types";
 import ImageCarousel from "./image-carousel";
-import { MapPin, DollarSign, Circle, Heart, Edit, Trash2 } from "lucide-react";
+import { Circle, Heart, Edit, Trash2 } from "lucide-react";
 import Avatar from "../avatar";
 import Link from "next/link";
 import API from "@/lib/axios";
@@ -21,8 +21,8 @@ interface ExtendedProductCardProps extends ProductCardProps {
 
 export default function ProductCard({ product, onDelete }: ExtendedProductCardProps) {
   const t = useTranslations("ProductsPage");
-  const [location, setLocation] = useState<Location>({ city: "Noma'lum", district: "Noma'lum" });
-  const [loading, setLoading] = useState(true);
+  // const [location, setLocation] = useState<Location>({ city: "Noma'lum", district: "Noma'lum" });
+  // const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isFavorite, setIsFavorite] = useState(false);
   const [currentUserId, setCurrentUserId] = useState<number | null>(null);
@@ -58,22 +58,22 @@ export default function ProductCard({ product, onDelete }: ExtendedProductCardPr
   }, [currentUserId, product.id]);
 
   // Lokatsiyani olish
-  useEffect(() => {
-    const fetchLocation = async () => {
-      try {
-        setLoading(true);
-        // const result = await getLocationFromCoords(product.latitude, product.longitude);
-        // setLocation(result);
-      } catch (err) {
-        setError("Manzilni aniqlashda xatolik :(");
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchLocation = async () => {
+  //     try {
+  //       setLoading(true);
+  //       // const result = await getLocationFromCoords(product.latitude, product.longitude);
+  //       // setLocation(result);
+  //     } catch (err) {
+  //       setError("Manzilni aniqlashda xatolik :(");
+  //       console.error(err);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchLocation();
-  }, [product.latitude, product.longitude]);
+  //   fetchLocation();
+  // }, [product.latitude, product.longitude]);
 
   // Prop'dan kelgan statusni yangilash
   useEffect(() => {

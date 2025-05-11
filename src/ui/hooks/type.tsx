@@ -51,7 +51,7 @@ export interface ProductImage {
 }
 
 export interface Product {
-  user: {};
+  user: string;
   id: number;
   title: string;
   description: string;

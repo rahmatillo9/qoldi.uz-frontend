@@ -6,7 +6,7 @@ import { useRouter, useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import confetti from "canvas-confetti";
 import API from "@/lib/axios";
-import { Card, CardHeader, CardBody, CardFooter, Button, Divider, Image } from "@heroui/react";
+import { Card, CardHeader, CardBody, CardFooter, Button, Divider } from "@heroui/react";
 import { useAuth } from "@/ui/hooks/use-auth";
 import { useCategories } from "@/ui/hooks/use-categories";
 import { useProductForm } from "@/ui/hooks/use-product-form";
