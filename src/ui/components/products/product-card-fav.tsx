@@ -22,7 +22,7 @@ interface ExtendedProductCardProps {
 export default function ProductCard({ favorite, fetchFavorites }: ExtendedProductCardProps) {
   const t = useTranslations("ProductsPage");
   // const [location, setLocation] = useState<Location>({ city: "Noma'lum", district: "Noma'lum" });
-  const [loading, setLoading] = useState(true);
+  const [loading] = useState(false);
   // const [error, setError] = useState<string | null>(null);
   const [currentUserId, setCurrentUserId] = useState<number | null>(null);
 

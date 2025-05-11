@@ -15,7 +15,7 @@ export const useProducts = (limit: number = 20, initialOffset: number = 0) => {
       const response = await API.get<PaginatedProducts>(`/product/paginated?limit=${limit}&offset=${offset}`);
       setProducts((prev) => [...prev, ...response.data.data]);
     } catch (err) {
-      setError("Mahsulotlarni yuklashda xatolik yuz berdi");
+      setError(`Mahsulotlarni yuklashda xatolik yuz berdi: ${err}`);
     } finally {
       setLoading(false);
     }

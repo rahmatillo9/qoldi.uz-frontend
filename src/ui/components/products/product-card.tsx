@@ -22,8 +22,6 @@ interface ExtendedProductCardProps extends ProductCardProps {
 export default function ProductCard({ product, onDelete }: ExtendedProductCardProps) {
   const t = useTranslations("ProductsPage");
   // const [location, setLocation] = useState<Location>({ city: "Noma'lum", district: "Noma'lum" });
-  // const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [isFavorite, setIsFavorite] = useState(false);
   const [currentUserId, setCurrentUserId] = useState<number | null>(null);
   const [status, setStatus] = useState<"available" | "sold">(product.status as "available" | "sold");
@@ -246,3 +244,7 @@ export default function ProductCard({ product, onDelete }: ExtendedProductCardPr
     </div>
   );
 }
+function setError(arg0: string) {
+  throw new Error("Function not implemented.");
+}
+
