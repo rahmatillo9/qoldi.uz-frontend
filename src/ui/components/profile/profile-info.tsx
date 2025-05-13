@@ -18,8 +18,8 @@ export default function ProfileInfo({ user, onUpdate }: ProfileInfoProps) {
     bio: user.bio || "",
     avatar: null as File | null,
   });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [loading] = useState(false);
+  const [error] = useState("");
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];

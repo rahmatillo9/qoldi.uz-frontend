@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl"
 const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), { ssr: false })
 const TileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), { ssr: false })
 const Marker = dynamic(() => import("react-leaflet").then((mod) => mod.Marker), { ssr: false })
-import { useMapEvents } from "react-leaflet"
+// import { useMapEvents } from "react-leaflet"
 
 
 import "leaflet/dist/leaflet.css"
@@ -37,12 +37,12 @@ interface MapPickerProps {
 function LocationMarker({ onLocationChange }: { onLocationChange: (lat: number, lng: number) => void }) {
   const [position, setPosition] = useState<L.LatLng | null>(null)
 
-  const map = useMapEvents({
-    click(e) {
-      setPosition(e.latlng)
-      onLocationChange(e.latlng.lat, e.latlng.lng)
-    },
-  })
+  // const map = useMapEvents({
+  //   click(e) {
+  //     setPosition(e.latlng)
+  //     onLocationChange(e.latlng.lat, e.latlng.lng)
+  //   },
+  // })
 
   return position === null ? null : <Marker position={position} />
 }

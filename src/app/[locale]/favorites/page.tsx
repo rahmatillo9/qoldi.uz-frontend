@@ -11,6 +11,7 @@ import { Favorite } from "@/ui/components/products/types";
 import BackButton from "@/ui/components/buttons/exit";
 import { toast } from "sonner";
 import SearchBar from "@/ui/components/search/search-bar";
+import { AxiosError } from "axios";
 
 export default function FavoritesPage() {
   const t = useTranslations("Favorite");
@@ -49,15 +50,17 @@ export default function FavoritesPage() {
         setFavoritesError(null);
       }
     
-    } catch (err: any) {
-      if (err.response?.status === 404) {
+    } catch (err: unknown) {
+      const axiosError = err as AxiosError;
+    
+      if (axiosError.response?.status === 404) {
         // 404 bo‘lsa – favoritlar topilmadi, lekin bu xato emas
         setFavorites([]);
-        setFavoritesError(t("noFavorites")); // yangi tarjima kirit
+        setFavoritesError(t("noFavorites"));
       } else {
         setFavorites([]);
         setFavoritesError(t("errorLoadingFavorites"));
-        console.error("Favoritlarni olishda xato:", err);
+        console.error("Favoritlarni olishda xato:", axiosError);
       }
     }
     

@@ -60,7 +60,6 @@ export default function RegisterPage() {
 
     try {
       // Foydalanuvchini ro'yxatdan o'tkazish
-      const response = await API.post("/users", formData)
 
       if (isEmailVisible) {
         // Agar email ko'rinadigan bo'lsa, email tasdiqlash kodini yuboramiz
