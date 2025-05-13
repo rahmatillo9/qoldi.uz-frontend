@@ -28,31 +28,42 @@ export default function LoginPage() {
       spread: 70,
       origin: { x: 0.5, y: 0.5 },
       colors: ["#0d9488", "#2dd4bf", "#ffffff"], // teal-600, teal-300, white
+      
     })
+  
+
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
     setError("")
-
+  
     const isEmail = identifier.includes("@")
     const loginData = {
       password,
       ...(isEmail ? { email: identifier } : { username: identifier }),
     }
-
+  
     try {
       const response = await API.post("/auth/login", loginData)
       localStorage.setItem("token", response.data.access_token)
       localStorage.removeItem("pendingVerificationEmail")
+      
       // Trigger confetti on successful login
       handleConfetti()
       toast.success(to("success"))
-      router.replace("/home")
-    } catch (err ) {
-      console.log(err);
       
+      // Force a full page reload to ensure all state is reset
+      window.location.href = "/home"
+      
+      // Alternatively, if you want to use Next.js router:
+      // router.push("/home")
+      // window.location.reload()
+      
+    } catch (err: any) {
+      setError(err.response?.data?.message || to("error"))
+      console.error("Login error:", err)
     } finally {
       setLoading(false)
     }
