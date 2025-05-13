@@ -66,3 +66,4 @@ export interface Product {
   updatedAt: string;
   images: ProductImage[];
 }
+

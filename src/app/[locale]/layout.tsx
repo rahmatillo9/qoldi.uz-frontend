@@ -20,7 +20,7 @@ declare global {
 }
 
 export const metadata = {
-  title: "UBOX PWA",
+  title: "UBOX",
   description: "Bu Next.js asosida qurilgan PWA dastur - UBOX Marketplace",
   icons: {
     icon: [
