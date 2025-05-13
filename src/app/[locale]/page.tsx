@@ -20,7 +20,7 @@ export default function ProductsPage() {
   return (
    
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <div className="sticky top-12 z-50 bg-[#0d0d0d] pb-4">
+      <div className="sticky top-12 z-30 bg-[#0d0d0d] pb-4">
   <SearchBar />
 </div>
       <CategoriesPage />
