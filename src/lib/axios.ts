@@ -26,6 +26,10 @@ API.interceptors.response.use(
       localStorage.removeItem("token");
       window.location.href = "/login"; // to‘g‘ridan-to‘g‘ri login sahifasiga o‘tkazadi
     }
+
+    if (error.message === "Network Error") {
+      window.location.href = "/server-error";
+    }
     
     return Promise.reject(error);
   }

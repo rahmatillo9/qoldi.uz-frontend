@@ -30,6 +30,17 @@
     "copyright": "All rights reserved"
   },
 
+  "Error": {
+  "title": "Something went wrong",
+  "message": "Sorry, our service is temporarily unavailable.",
+  "reason": "Due to financial difficulties, our server is currently down. We’re working hard to bring it back online as soon as possible.",
+  "thanks": "Thank you so much for staying with us and for your patience.",
+  "backHome": "Return to Homepage",
+  "repair": "Try Again",
+  "metaDescription": "UBOX PWA is temporarily unavailable due to server issues. Thank you for your understanding and support."
+},
+
+
     "ThemeSwitch": {
     "switchToDark": "Switch to dark mode",
     "switchToLight": "Switch to light mode",

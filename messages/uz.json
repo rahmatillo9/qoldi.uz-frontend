@@ -15,6 +15,17 @@
     "viewMessages": "Xabarlarni ko'rish"
   },
 
+"Error": {
+  "title": "Serverda muammo yuz berdi",
+  "message": "Kechirasiz, hozircha xizmatimiz ishlamayapti.",
+  "reason": "Sabab: moliyaviy holatlar tufayli serverim vaqtincha to‘xtab qoldi. Men esa uni tezroq tiklash ustida harakatdaman.",
+  "thanks": "Men bilan qolganingiz va sabr qilganingiz uchun sizga chin dildan minnadorman.",
+  "backHome": "Bosh sahifaga qaytish",
+  "repair": "Qayta urinib ko‘rish",
+  "metaDescription": "UBOX PWA vaqtinchalik muammo tufayli ishlamayapti. Sabr va qo‘llab-quvvatlaganingiz uchun tashakkur."
+},
+
+  
 
   "InstallPrompt": {
     "installMessage": "UBOX PWA'ni o‘rnatib, savdoni boshlang!",
