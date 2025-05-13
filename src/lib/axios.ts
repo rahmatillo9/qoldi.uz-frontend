@@ -28,6 +28,7 @@ API.interceptors.response.use(
     }
 
     if (error.message === "Network Error") {
+      localStorage.removeItem("token");
       window.location.href = "/server-error";
     }
     
