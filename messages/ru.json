@@ -16,6 +16,11 @@
     "viewMessages": "Посмотреть сообщения"
   },
 
+  "InstallPrompt": {
+    "installMessage": "Установите UBOX PWA для лучшего опыта!",
+    "install": "Установить",
+    "close": "Закрыть"
+  },
 
   "Footer": {
     "logo": "Маркетплейс",

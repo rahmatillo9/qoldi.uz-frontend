@@ -16,6 +16,12 @@
   },
 
 
+  "InstallPrompt": {
+    "installMessage": "UBOX PWA'ni o‘rnatib, savdoni boshlang!",
+    "install": "O‘rnatish",
+    "close": "Yopish"
+  },
+
   
     "Footer": {
       "logo": "Onlayn Bozor",

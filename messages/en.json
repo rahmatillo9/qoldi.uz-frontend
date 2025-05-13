@@ -16,6 +16,12 @@
     "viewMessages": "View Messages"
   },
 
+  "InstallPrompt": {
+    "installMessage": "Install UBOX PWA for a better experience!",
+    "install": "Install",
+    "close": "Close"
+  },
+
   "Footer": {
     "logo": "Online Market",
     "about": "About Us",

@@ -49,7 +49,7 @@ export default function LoginPage() {
       // Trigger confetti on successful login
       handleConfetti()
       toast.success(to("success"))
-      router.replace("/profile")
+      router.replace("/home")
     } catch (err ) {
       console.log(err);
       

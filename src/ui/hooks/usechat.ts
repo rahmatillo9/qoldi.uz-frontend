@@ -96,22 +96,26 @@ export function useChat({ isOpen, product}: ChatModalProps) {
     });
 
     socketRef.current.on("new_message", (message: Message) => {
-      setMessages((prev) => [...prev, message]);
+      setMessages((prev) => {
+        const updated = [...prev, message];
+    
+        // Sanaga ko‘ra sort qilish
+        return updated.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+      });
     });
+    
 
     socketRef.current.on("loadMessages", (response: Message[]) => {
-      setMessages(response || []);
+      const sortedMessages = [...(response || [])].sort(
+        (a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+      );
     
-      // currentUserId hali tayyor bo‘lmasa, qayt
-      if (!currentUserId) {
-        console.log("currentUserId is null, skipping mark_as_seen");
-        return;
-      }
+      setMessages(sortedMessages);
     
-      // O'qilmagan xabarlarni belgilash
-      (response || []).forEach((msg) => {
+      if (!currentUserId) return;
+    
+      sortedMessages.forEach((msg) => {
         if (msg.receiverId === currentUserId && !msg.isRead) {
-          console.log("mark_as_seen emitted for message:", msg.id);
           socketRef.current?.emit("mark_as_seen", {
             messageId: msg.id,
             userId: currentUserId,
@@ -119,6 +123,7 @@ export function useChat({ isOpen, product}: ChatModalProps) {
         }
       });
     });
+    
     
 
     socketRef.current.on("error", (error: { message: string }) => {

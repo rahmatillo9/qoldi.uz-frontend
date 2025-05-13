@@ -79,21 +79,28 @@ export function useChatPage() {
 
     socketRef.current.on("new_message", (message: Message) => {
       if (message.chatRoomId === parseInt(chatId)) {
-        setMessages((prev) => [...prev, message]);
+        setMessages((prev) => {
+          const exists = prev.find((m) => m.id === message.id);
+          if (exists) return prev;
+    
+          const updated = [...prev, message];
+          return updated.sort(
+            (a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+          );
+        });
       }
     });
+    
 
     socketRef.current.on("loadMessages", (response: Message[]) => {
-      setMessages(response || []);
+      const sorted = [...(response || [])].sort(
+        (a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+      );
     
-      // Xabarlarni o‘qilgan deb belgilash
-      response?.forEach((msg) => {
-        if (
-          msg.receiverId === currentUserId &&
-          msg.isRead === false
-        ) {
-          
-          
+      setMessages(sorted);
+    
+      sorted.forEach((msg) => {
+        if (msg.receiverId === currentUserId && msg.isRead === false) {
           socketRef.current?.emit("mark_as_seen", {
             messageId: msg.id,
             userId: currentUserId,
@@ -101,6 +108,7 @@ export function useChatPage() {
         }
       });
     });
+    
     
     socketRef.current.on("error", (error: { message: string }) => {
       console.error("Socket error:", error.message);
