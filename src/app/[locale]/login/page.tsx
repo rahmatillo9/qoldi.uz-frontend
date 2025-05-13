@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useRef } from "react"
-import { useRouter } from "next/navigation"
 import Link from "next/link"
 import API from "@/lib/axios"
 import { ArrowRight } from "lucide-react"
@@ -15,7 +14,6 @@ import { toast } from "sonner"
 export default function LoginPage() {
   const t = useTranslations("LoginPage")
   const to = useTranslations("Toast")
-  const router = useRouter()
   const buttonRef = useRef(null)
   const [identifier, setIdentifier] = useState("")
   const [password, setPassword] = useState("")
@@ -61,8 +59,7 @@ export default function LoginPage() {
       // router.push("/home")
       // window.location.reload()
       
-    } catch (err: any) {
-      setError(err.response?.data?.message || to("error"))
+    } catch (err) {
       console.error("Login error:", err)
     } finally {
       setLoading(false)
