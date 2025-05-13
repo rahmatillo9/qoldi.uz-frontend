@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { Input, Button } from "@heroui/react";
 import API from "@/lib/axios";
 import Link from "next/link";
+import { toast } from "sonner";
 
 
 export default function ResetPasswordPage() {
@@ -27,6 +28,7 @@ export default function ResetPasswordPage() {
       await API.post("/users/reset-password", { resetCode, newPassword });
       setSuccess(t("passwordResetSuccess"));
       setTimeout(() => {
+        toast.success(t("passwordResetSuccess"))
         router.push("/login");
       }, 2000); // 2 soniyadan keyin yo'naltirish
     } catch (err) {

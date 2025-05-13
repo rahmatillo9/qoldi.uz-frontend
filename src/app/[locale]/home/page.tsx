@@ -9,9 +9,8 @@ import { useProducts } from "@/ui/hooks/use-product";
 import ProductCard from "@/ui/components/products/product-card";
 import { Button } from "@heroui/react";
 import CategoriesPage from "@/ui/components/category/category";
-import SearchPage from "@/ui/components/search/page";
-import ProductCardSkeleton from "@/ui/components/skeletons/product-card-skeleton";
-import ClientOnly from "@/ui/hooks/client-only";
+import ProductCardSkeleton from "@/ui/components/skeletons/product-card-skeleton";;
+import SearchBar from "@/ui/components/search/search-bar";
 
 
 export default function ProductsPage() {
@@ -21,13 +20,9 @@ export default function ProductsPage() {
   return (
    
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <div>
-        <ClientOnly>
-        <SearchPage/>
-        </ClientOnly>
-     
-      
-      </div>
+      <div className="sticky top-12 z-30 bg-[#0d0d0d] pb-4">
+  <SearchBar />
+</div>
       <CategoriesPage />
       <h1 className="text-3xl font-extrabold  mb-8">{t("title")}</h1>
    

@@ -11,6 +11,7 @@ import ProductInfo from "@/ui/components/product/product-info";
 import { Product } from "@/ui/components/product/type";
 import ProductsPage from "../../home/page";
 import BackButton from "@/ui/components/buttons/exit";
+import { toast } from "sonner";
 
 const ProductMap = dynamic(() => import("@/ui/components/product/product-map"), {
   ssr: false,
@@ -18,6 +19,7 @@ const ProductMap = dynamic(() => import("@/ui/components/product/product-map"), 
 
 export default function ProductDetailPage() {
   const t = useTranslations("ProductDetail");
+  const to = useTranslations("Toast");
   const params = useParams();
   const productId = Array.isArray(params?.productId) ? params.productId[0] : params?.productId;
   const [product, setProduct] = useState<Product | null>(null);
@@ -37,6 +39,7 @@ export default function ProductDetailPage() {
   useEffect(() => {
     if (!productId) {
       setError(t("productNotFound"));
+      toast.error(t("productNotFound"));
       setLoading(false);
       return;
     }
@@ -46,8 +49,10 @@ export default function ProductDetailPage() {
         setLoading(true);
         const response = await API.get(`/product/${productId}`);
         setProduct(response.data);
+        toast.success(to("productLoaded"));
       } catch (err) {
         setError(t("errorLoadingProduct"));
+        toast.error(t("errorLoadingProduct"));
         console.error(err);
       } finally {
         setLoading(false);

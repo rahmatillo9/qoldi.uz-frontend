@@ -7,6 +7,7 @@ import { DollarSign, MapPin, Circle, MessageSquare } from "lucide-react";
 import Avatar from "@/ui/components/avatar";
 import { Button } from "@heroui/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation"; // Router qo'shildi
 import ChatModal from "../chat/chat-modal";
 import { ProductInfoProps } from "./type";
 import { jwtDecode } from "jwt-decode";
@@ -16,6 +17,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
   const t = useTranslations("ProductDetail");
   const [currentUserId, setCurrentUserId] = useState<number | null>(null);
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const router = useRouter(); // Router instansiasi
 
   // JWT token orqali userId ni olish
   useEffect(() => {
@@ -25,6 +27,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
         const decoded = jwtDecode<JwtPayload>(token);
         setCurrentUserId(decoded.id);
       } catch (err) {
+        
         console.error("Token dekod qilishda xato:", err);
       }
     }
@@ -34,7 +37,13 @@ export default function ProductInfo({ product }: ProductInfoProps) {
   const isOwner = currentUserId === userId;
 
   const handleMessageClick = () => {
-    setIsChatOpen(true);
+    if (currentUserId === null) {
+      // Agar ro'yxatdan o'tmagan bo'lsa, register sahifasiga yo'naltir
+      router.push("/register");
+    } else {
+      // Agar ro'yxatdan o'tgan bo'lsa, chat och
+      setIsChatOpen(true);
+    }
   };
 
   return (
@@ -76,7 +85,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
         <Button
           onClick={handleMessageClick}
           className={`flex items-center bg-blue-500 hover:bg-blue-600 ${isOwner ? "hidden" : ""}`}
-          disabled={isOwner || currentUserId === null}
+          disabled={isOwner}
         >
           <MessageSquare size={20} className="mr-2" />
           {t("sendMessage")}

@@ -53,24 +53,22 @@ export default function CategoriesPage() {
 
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-extrabold mb-8">{t("title")}</h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <h1 className="text-3xl font-extrabold justify-center items-center mb-6">{t("title")}</h1>
+      <div className="flex flex-nowrap gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-900 pb-4 max-h-[16rem] overflow-y-hidden">
         {categories.map((category) => (
           <div
             key={category.id}
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
+            className="flex-none w-24 h-32 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-shadow flex flex-col items-center justify-center p-2"
             onClick={() => handleCategoryClick(category.id)}
           >
             <img
               src={categoryImages[category.id] || "https://picsum.photos/300/200?random=0"}
               alt={category.name}
-              className="w-full h-40 object-cover"
+              className="w-16 h-16 rounded-full object-cover mb-2"
             />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                {category.name}
-              </h3>
-            </div>
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 text-center line-clamp-2">
+              {category.name}
+            </h3>
           </div>
         ))}
       </div>

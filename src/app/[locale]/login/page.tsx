@@ -10,9 +10,11 @@ import { useTranslations } from "next-intl"
 import confetti from "canvas-confetti"
 import RBLogo from "@/ui/components/icons/logo"
 import BackButton from "@/ui/components/buttons/exit"
+import { toast } from "sonner"
 
 export default function LoginPage() {
   const t = useTranslations("LoginPage")
+  const to = useTranslations("Toast")
   const router = useRouter()
   const buttonRef = useRef(null)
   const [identifier, setIdentifier] = useState("")
@@ -46,6 +48,7 @@ export default function LoginPage() {
       localStorage.removeItem("pendingVerificationEmail")
       // Trigger confetti on successful login
       handleConfetti()
+      toast.success(to("success"))
       router.replace("/profile")
     } catch (err ) {
       console.log(err);

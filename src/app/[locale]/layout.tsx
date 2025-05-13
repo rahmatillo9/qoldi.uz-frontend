@@ -9,7 +9,7 @@ import MarketPlaceNavbar from '@/ui/components/navbar/navbar';
 import 'leaflet/dist/leaflet.css';
 import Footer from '@/ui/components/footer';
 import SkyDecorations from '@/ui/components/sky-decorations ';
-
+import { Toaster } from "sonner";
 
 export default async function LocaleLayout({
   children,
@@ -23,30 +23,33 @@ export default async function LocaleLayout({
   if (!routing.locales.includes(locale as 'en' | 'ru' | 'uz')) {
     notFound();
   }
-  
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen bg-background text-foreground justify-between">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
           <NextIntlClientProvider locale={locale}>
             <MarketPlaceNavbar />
-  
+
             <main className="flex-1">
-              <SkyDecorations/>
+              <SkyDecorations />
               {children}
             </main>
-  
-            <Footer />
+
+            <div className="md:mb-0 mb-[80px]">
+              <Footer />
+            </div>
             <ThemeSwitch />
+            <Toaster position="top-right"/>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>
   );
-  
+
 }

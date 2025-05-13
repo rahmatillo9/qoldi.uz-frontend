@@ -8,9 +8,11 @@ import { Input, Button } from "@heroui/react";
 import API from "@/lib/axios";
 import BackButton from "@/ui/components/buttons/exit";
 import Link from "next/link";
+import { toast } from "sonner";
 
 export default function ForgotPasswordPage() {
   const t = useTranslations("ForgotPassword");
+  const to = useTranslations("Toast");
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
@@ -25,6 +27,7 @@ export default function ForgotPasswordPage() {
     try {
       await API.post("/users/forgot-password", { email });
       setSuccess(t("emailSent"));
+      toast.success(to("emailSent"));
       setTimeout(() => {
         router.push("/reset-password");
       }, 2000); // 2 soniyadan keyin yo'naltirish

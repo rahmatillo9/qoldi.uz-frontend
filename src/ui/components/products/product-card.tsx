@@ -13,6 +13,7 @@ import { jwtDecode } from "jwt-decode";
 import { JwtPayload } from "@/ui/components/add-product/types";
 import { Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@heroui/react";
 import Switch from "react-switch";
+import { toast } from "sonner";
 
 // ProductCardProps interfeysini yangilaymiz
 interface ExtendedProductCardProps extends ProductCardProps {
@@ -21,6 +22,7 @@ interface ExtendedProductCardProps extends ProductCardProps {
 
 export default function ProductCard({ product, onDelete }: ExtendedProductCardProps) {
   const t = useTranslations("ProductsPage");
+  const tosT = useTranslations("Toast");
   const [isFavorite, setIsFavorite] = useState(false);
   const [currentUserId, setCurrentUserId] = useState<number | null>(null);
   const [status, setStatus] = useState<"available" | "sold">(product.status as "available" | "sold");
@@ -34,6 +36,7 @@ export default function ProductCard({ product, onDelete }: ExtendedProductCardPr
         const decoded = jwtDecode<JwtPayload>(token);
         setCurrentUserId(decoded.id);
       } catch (err) {
+        toast.error(tosT("tokenError"));
         console.error("Token dekod qilishda xato:", err);
       }
     }
@@ -75,7 +78,13 @@ export default function ProductCard({ product, onDelete }: ExtendedProductCardPr
 
       const { status } = response.data;
       setIsFavorite(status === "added");
+      toast.success(
+        status === "added"
+        ? `${tosT("favS")} ✅`
+        : `${tosT("favR")} ❌`
+        );
     } catch (err) {
+      toast.error(tosT("Error"));
       console.error("Favorite toggle qilishda xato:", err);
     }
   };
@@ -90,10 +99,17 @@ export default function ProductCard({ product, onDelete }: ExtendedProductCardPr
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
+        
       });
       setStatus(newStatus);
+      toast.success(
+        newStatus === "available"
+        ? `${tosT("statusAvailable")} ✅`
+        : `${tosT("statusSold")} ❌`
+        );
     } catch (err) {
       console.error("Statusni o'zgartirishda xato:", err);
+     toast.error(tosT("Error"));
       setError(t("statusUpdateError")); // Xatolikni saqlash
     }
   };
@@ -114,9 +130,10 @@ export default function ProductCard({ product, onDelete }: ExtendedProductCardPr
       if (onDelete) {
         onDelete(product.id);
       }
+      toast.success(tosT("productDeleted"));
     } catch (err) {
       console.error("Mahsulotni o'chirishda xato:", err);
-      setError(t("productDeleteError")); // Xatolikni saqlash
+      setError(tosT("productDeleteError")); // Xatolikni saqlash
     }
   };
 

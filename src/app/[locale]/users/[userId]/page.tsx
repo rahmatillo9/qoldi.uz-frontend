@@ -9,6 +9,7 @@ import Avatar from "@/ui/components/avatar";
 import UserProducts from "@/ui/components/profile/user-products";
 import { Product } from "@/ui/components/products/types";
 import BackButton from "@/ui/components/buttons/exit";
+import { toast } from "sonner";
 
 interface User {
   id: number;
@@ -28,6 +29,7 @@ export default function UserProfilePage() {
 
   useEffect(() => {
     if (!userId) {
+      toast.error(t("userNotFound"));
       setError(t("userNotFound"));
       setLoading(false);
       return;
@@ -49,6 +51,8 @@ export default function UserProfilePage() {
         const productsResponse = await API.get(`/product/user/${userId}`);
         setProducts(productsResponse.data);
       } catch (err) {
+
+        toast.error(t("errorLoadingData"));
         setError(t("errorLoadingData"));
         console.error(err);
       } finally {

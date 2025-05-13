@@ -10,7 +10,10 @@
     "logout": "Выйти",
       "menu": "Menyu",
       "favorites": "Избранное",
-      "addProduct": "Добавить продукт"
+      "addProduct": "Добавить продукт",
+      "newMessages": "Новые сообщения!",
+    "newMessagesBody": "У вас {count} новое(ых) сообщение(й).",
+    "viewMessages": "Посмотреть сообщения"
   },
 
 
@@ -53,7 +56,8 @@
     "termsAndPrivacy": "Регистрируясь, вы соглашаетесь с нашими",
     "termsOfService": "Условиями использования",
     "privacyPolicy": "Политикой конфиденциальности",
-    "error": "Регистрация не удалась. Пожалуйста, попробуйте снова."
+    "errorCreatingAccount": "Регистрация не удалась. Пожалуйста, попробуйте снова.",
+    "dontKnowEmail": "Я не знаю, что такое email"
   },
 
 
@@ -418,7 +422,31 @@
 "Metadata": {
     "title": "Онлайн Рынок",
     "description": "Платформа для обмена и покупки товаров для всех"
-  }
+  },
+
+
+  "Toast": {
+"favS": "Товар добавлен в избранное",
+"favR": "Товар удален из избранного",
+"Error": "Произошла ошибка",
+"tokenError": "Пользователь не авторизован",
+"productPublished": "Товар успешно опубликован",
+"imageDeleted": "Изображение удалено",
+"productUpdated": "Товар успешно обновлен",
+"emailSent": "Код подтверждения отправлен",
+"success": "Успешно",
+"errorLoadingChats": "Ошибка при загрузке сообщений",
+"errorDeletingChat": "Ошибка при удалении сообщения",
+"chatDeleted": "Сообщение удалено",
+"productLoaded": "Товар загружен",
+"noEmailFound": "Email не найден",
+"emailVerified": "Email подтвержден",
+"statusAvailable": "Товар в наличии",
+"statusSold": "Товар продан",
+"productDeleted": "Товар удален",
+"productDeleteError": "Ошибка при удалении товара",
+"accountCreated": "Аккаунт успешно создан"
+}
 
 
 

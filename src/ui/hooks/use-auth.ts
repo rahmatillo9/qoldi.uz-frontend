@@ -11,7 +11,7 @@ export const useAuth = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
-      router.push("/login");
+      router.push("/register");
       return;
     }
 
@@ -21,7 +21,7 @@ export const useAuth = () => {
     } catch (err) {
       console.error("Invalid token:", err);
       localStorage.removeItem("token");
-      router.push("/login");
+      router.push("/register");
     }
   }, [router]);
 

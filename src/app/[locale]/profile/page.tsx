@@ -27,6 +27,7 @@ export default function ProfilePage() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
+      
       router.push("/login");
       return;
     }
@@ -59,7 +60,7 @@ export default function ProfilePage() {
     } catch (err) {
       console.log("Token dekod qilishda xato:", err);
       
-      router.push("/login");
+      router.push("/register");
     }
   }, [router]);
 

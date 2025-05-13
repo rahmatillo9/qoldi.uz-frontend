@@ -9,7 +9,10 @@
     "logout": "Chiqish",
      "menu": "Menyu",
      "favorites": "Sevimlilar",
-     "addProduct": "Mahsulot qo'shish"
+     "addProduct": "Mahsulot qo'shish",
+     "newMessages": "Yangi xabarlar!",
+    "newMessagesBody": "Sizda {count} ta yangi xabar bor.",
+    "viewMessages": "Xabarlarni ko'rish"
   },
 
 
@@ -53,7 +56,8 @@
     "termsAndPrivacy": "Ro'yxatdan o'tish orqali siz bizning",
     "termsOfService": "Foydalanish shartlari",
     "privacyPolicy": "Maxfiylik siyosati",
-    "error": "Ro'yxatdan o'tish muvaffaqiyatsiz yakunlandi. Iltimos, qayta urinib ko'ring."
+    "errorCreatingAccount": "Ro'yxatdan o'tish muvaffaqiyatsiz yakunlandi. Iltimos, qayta urinib ko'ring.",
+    "dontKnowEmail": "Men email nima ekanligini bilmayman"
   },
 
   "LoginPage": {
@@ -408,6 +412,30 @@
   "Metadata": {
     "title": "Onlayn Bozori",
     "description": "Hammaga mahsulotlarini ulashish va sotib olish uchun platforma"
+  },
+
+  "Toast": {
+    "favS": "Mahsulot sevimlilarga qo'shildi",
+    "favR": "Mahsulot sevimlilardan o'chirildi",
+    "Error":"Xatolik yuz berdi",
+    "tokenError": "Foydalanuvchi ro`yxatdan o`tmagan",
+    "productPublished": "Mahsulot muvaffaqiyatli e'lon qilindi",
+    "imageDeleted": "Rasm o'chirildi",
+    "productUpdated": "Mahsulot muvaffaqiyatli yangilandi",
+    "emailSent": "Tasdiqlash kodi yuborildi",
+    "success": "Muvaffaqiyatli",
+    "errorLoadingChats": "Xabarlarni yuklashda xatolik",
+    "errorDeletingChat": "Xabarni o'chirishda xatolik",
+    "chatDeleted": "Xabar o'chirildi",
+    "productLoaded": "Mahsulot yuklandi",
+    "noEmailFound": "Email topilmadi",
+    "emailVerified": "Email tasdiqlandi",
+    "statusAvailable": "Mahsulot mavjud",
+     "statusSold": "Mahsulot sotilgan",
+    "productDeleted": "Mahsulot o'chirildi",
+    "productDeleteError": "Mahsulotni o'chirishda xatolik",
+    "accountCreated": "Hisob muvaffaqiyatli yaratildi!"
+  
   }
 
   }

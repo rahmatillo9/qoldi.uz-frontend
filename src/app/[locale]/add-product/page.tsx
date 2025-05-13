@@ -15,10 +15,12 @@ import ImageUploadStep from "@/ui/components/add-product/image-upload-step";
 import SuccessMessage from "@/ui/components/add-product/success-message";
 import StepIndicator from "@/ui/components/add-product/step-indicator";
 import BackButton from "@/ui/components/buttons/exit";
+import { toast } from "sonner";
 
 
 export default function AddProductPage() {
   const t = useTranslations("AddProductPage");
+  const to = useTranslations("Toast");
   const router = useRouter();
   const { userId } = useAuth();
   const { categories, error: categoriesError, setError: setCategoriesError, isLoading: categoriesLoading } = useCategories();
@@ -108,6 +110,7 @@ export default function AddProductPage() {
           colors: ["#0d9488", "#2dd4bf", "#ffffff"],
         });
         setTimeout(() => {
+          toast.success(to("productPublished"));
           router.push("/profile");
         }, 2000);
       }

@@ -11,7 +11,7 @@ import {
   Link,
   Button,
 } from "@heroui/react";
-import { MessageSquare, User, LogOut, Heart, DiamondPlus } from "lucide-react";
+import { LogOut } from "lucide-react";
 import LanguageSwitcher from "../language-switcher";
 
 interface MobileMenuDrawerProps {
@@ -27,7 +27,7 @@ export default function MobileMenuDrawer({
   onOpenChange,
   isAuthenticated,
   handleLogout,
-  unreadCount,
+  // unreadCount,
 }: MobileMenuDrawerProps) {
   const t = useTranslations("Navbar");
   const pathname = usePathname();
@@ -61,7 +61,7 @@ export default function MobileMenuDrawer({
                     {t("home")}
                   </Link>
                 </div>
-                {isAuthenticated && (<>
+                {/* {isAuthenticated && (<>
             <div className="drawer-item">
               <Link color={isActive("/add-product") ? "primary" : "foreground"} href="/add-product">
              <DiamondPlus className="h-5 w-5 mr-1" />
@@ -70,9 +70,9 @@ export default function MobileMenuDrawer({
 
              
             </div>
-          </>)}
+          </>)} */}
                 {/* Messages (only when authenticated) */}
-                {isAuthenticated && (
+                {/* {isAuthenticated && (
                   <div className="drawer-item">
                     <Link
                       color={isActive("/messages") ? "primary" : "foreground"}
@@ -91,9 +91,9 @@ export default function MobileMenuDrawer({
                       </div>
                     </Link>
                   </div>
-                )}
+                )} */}
 
-                {isAuthenticated && (
+                {/* {isAuthenticated && (
                   <div className="drawer-item">
                     <Link
                       color={isActive("/favorites") ? "primary" : "foreground"}
@@ -105,10 +105,10 @@ export default function MobileMenuDrawer({
                       {t("favorites")}
                     </Link>
                   </div>
-                )}
+                )} */}
 
                 {/* Profile (only when authenticated) */}
-                {isAuthenticated && (
+                {/* {isAuthenticated && (
                   <div className="drawer-item">
                     <Link
                       color={isActive("/profile") ? "primary" : "foreground"}
@@ -120,7 +120,7 @@ export default function MobileMenuDrawer({
                       {t("profile")}
                     </Link>
                   </div>
-                )}
+                )} */}
 
                 {/* Login/SignUp (only when not authenticated) */}
                 {!isAuthenticated ? (

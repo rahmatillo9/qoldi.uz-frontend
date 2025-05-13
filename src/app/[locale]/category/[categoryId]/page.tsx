@@ -2,12 +2,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import {  useParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import API from "@/lib/axios";
 import ProductCard from "@/ui/components/products/product-card";
 import { CategoryResponse, CategoryName } from "@/ui/components/category/type";
 import BackButton from "@/ui/components/buttons/exit";
+import SearchBar from "@/ui/components/search/search-bar";
 
 
 
@@ -68,8 +69,11 @@ export default function CategoryProductsPage() {
 
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-           <div className="flex items-center justify-between mb-6">
-      <BackButton/>
+      <div className="sticky top-12 z-30 mb-2 bg-[#0d0d0d] pb-4">
+        <SearchBar />
+      </div>
+      <div className="flex items-center justify-between mb-6">
+        <BackButton />
       </div>
       <h1 className="text-3xl font-extrabold mb-8">
         {t("title", { categoryName })}
@@ -85,7 +89,7 @@ export default function CategoryProductsPage() {
             <ProductCard
               key={product.id}
               product={product}
-              // ProductCard loyihangizda favorite funksiyasi bo'lsa, fetchFavorites funksiyasini qo'shishingiz mumkin
+            // ProductCard loyihangizda favorite funksiyasi bo'lsa, fetchFavorites funksiyasini qo'shishingiz mumkin
             />
           ))}
         </div>

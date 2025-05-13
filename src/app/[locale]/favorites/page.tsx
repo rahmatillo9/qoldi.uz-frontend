@@ -9,9 +9,12 @@ import { jwtDecode } from "jwt-decode";
 import { JwtPayload } from "@/ui/components/add-product/types";
 import { Favorite } from "@/ui/components/products/types";
 import BackButton from "@/ui/components/buttons/exit";
+import { toast } from "sonner";
+import SearchBar from "@/ui/components/search/search-bar";
 
 export default function FavoritesPage() {
   const t = useTranslations("Favorite");
+  const to = useTranslations("Toast");
   const [favorites, setFavorites] = useState<Favorite[]>([]);
   const [currentUserId, setCurrentUserId] = useState<number | null>(null);
   const [favoritesError, setFavoritesError] = useState<string | null>(null);
@@ -24,6 +27,7 @@ export default function FavoritesPage() {
         const decoded = jwtDecode<JwtPayload>(token);
         setCurrentUserId(decoded.id);
       } catch (err) {
+        toast.error(to("tokenError"));
         console.error("Token dekod qilishda xato:", err);
       }
     }
@@ -35,12 +39,28 @@ export default function FavoritesPage() {
 
     try {
       const response = await API.get(`/favorites/user/${currentUserId}`);
-      console.log("Favoritlar:", response.data);
-      setFavorites(response.data);
-    } catch (err) {
-      setFavoritesError(t("errorLoadingFavorites"));
-      console.error("Favoritlarni olishda xato:", err);
+   
+    
+      if (response.data && response.data.length === 0) {
+        setFavoritesError(t("errorLoadingFavorites")); // yoki: t("noFavoritesFound")
+        setFavorites([]);
+      } else {
+        setFavorites(response.data);
+        setFavoritesError(null);
+      }
+    
+    } catch (err: any) {
+      if (err.response?.status === 404) {
+        // 404 bo‘lsa – favoritlar topilmadi, lekin bu xato emas
+        setFavorites([]);
+        setFavoritesError(t("noFavorites")); // yangi tarjima kirit
+      } else {
+        setFavorites([]);
+        setFavoritesError(t("errorLoadingFavorites"));
+        console.error("Favoritlarni olishda xato:", err);
+      }
     }
+    
   };
 
   useEffect(() => {
@@ -49,9 +69,13 @@ export default function FavoritesPage() {
 
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-           <div className="flex items-center justify-between mb-6">
-            <BackButton/>
-            </div>
+            <div className="sticky top-12 z-30 mb-2 bg-[#0d0d0d] pb-4">
+        <SearchBar />
+      </div>
+      <div className="flex items-center justify-between mb-6">
+        <BackButton />
+      </div>
+      
       {/* Favorites bo'limi */}
       <div className="mb-12">
         <h2 className="text-2xl font-bold mb-6">{t("favorites")}</h2>
@@ -60,10 +84,7 @@ export default function FavoritesPage() {
             <p className="text-sm text-red-600 dark:text-red-200">{favoritesError}</p>
           </div>
         )}
-        {favorites.length === 0 && !favoritesError && (
-          <div className="text-center text-gray-600 dark:text-gray-400">{t("noFavorites")}</div>
-        )}
-        {favorites.length > 0 && (
+        {favorites.length > 0 && !favoritesError && (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {favorites.map((favorite) => (
               <ProductCard

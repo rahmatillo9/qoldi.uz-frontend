@@ -1,72 +1,67 @@
 
-'use client'
+
+
+
+"use client";
 
 import { useTranslations } from "next-intl";
-import Link from "next/link";
-import { Search, UserPlus, Send } from "lucide-react";
+import { useProducts } from "@/ui/hooks/use-product";
+import ProductCard from "@/ui/components/products/product-card";
 import { Button } from "@heroui/react";
-import LanguageSwitcher from "@/ui/components/language-switcher";
+import CategoriesPage from "@/ui/components/category/category";
+import ProductCardSkeleton from "@/ui/components/skeletons/product-card-skeleton";
+import SearchBar from "@/ui/components/search/search-bar";
 
-export default function LandingPage() {
-  const t = useTranslations("LandingPage");
+
+export default function ProductsPage() {
+  const t = useTranslations("ProductsPage");
+  const { products, loading, error, loadMore } = useProducts();
 
   return (
-    <div className="min-h-screen px-6 py-12 bg-gradient-to-br   text-white flex flex-col items-center justify-center">
-      <div className="max-w-4xl w-full space-y-12">
-        {/* Yuqori qism: Til almashtirish tugmasi */}
-        <div className="flex justify-end">
-          <LanguageSwitcher />
+   
+    <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+      <div className="sticky top-12 z-50 bg-[#0d0d0d] pb-4">
+  <SearchBar />
+</div>
+      <CategoriesPage />
+      <h1 className="text-3xl font-extrabold  mb-8">{t("title")}</h1>
+   
+
+      {error && (
+        <div className="mb-6 bg-red-50 dark:bg-red-900/30 border-l-4 border-red-500 dark:border-red-400 p-4 rounded-md">
+          <p className="text-sm text-red-600 dark:text-red-200">{error}</p>
         </div>
+      )}
 
-        {/* Sarlavha */}
-        <div className="text-center space-y-4 animate-fadeIn">
-          <h1 className="text-4xl sm:text-5xl font-bold text-teal-400">{t("title")}</h1>
-          <p className="text-lg text-zinc-300">{t("description")}</p>
+      {products.length === 0 && !loading && !error && (
+        <div className="text-center text-gray-600 dark:text-gray-400">{t("noProducts")}</div>
+      )}
+{loading && products.length === 0 ? (
+  // Skeleton loader faqat birinchi yuklashda
+  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+    {Array.from({ length: 8 }).map((_, index) => (
+      <ProductCardSkeleton key={index} />
+    ))}
+  </div>
+) : (
+  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+    {products.map((product, index) => (
+      <ProductCard key={`${product.id}-${index}`} product={product} />
+    ))}
+  </div>
+)}
+
+
+      {!loading && products.length > 0 && (
+        <div className="mt-8 text-center">
+          <Button
+            className="bg-teal-600 dark:bg-teal-500 text-white hover:bg-teal-700 dark:hover:bg-teal-400"
+            onClick={loadMore}
+          >
+            {t("loadMore")}
+          </Button>
         </div>
-
-        {/* Funksiyalar */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {/* Search */}
-          <div className="backdrop-blur-md bg-black/30 border border-white/10 rounded-xl p-6 text-center space-y-4 animate-slideUp">
-            <Search size={32} className="text-teal-400 mx-auto animate-pulse" />
-            <h3 className="text-xl font-semibold">{t("searchTitle")}</h3>
-            <p className="text-sm text-zinc-400">{t("searchDescription")}</p>
-            <Link href="/home">
-              <Button className="backdrop-blur-md bg-black/50 border border-white/10 rounded-xl px-4 py-2 text-white hover:bg-gray-700/50 transition-colors">
-                {t("exploreProducts")}
-              </Button>
-            </Link>
-          </div>
-
-          {/* Ro'yxatdan o'tish */}
-          <div className="backdrop-blur-md bg-black/30 border border-white/10 rounded-xl p-6 text-center space-y-4 animate-slideUp" style={{ animationDelay: "0.2s" }}>
-            <UserPlus size={32} className="text-teal-400 mx-auto animate-pulse" />
-            <h3 className="text-xl font-semibold">{t("registerTitle")}</h3>
-            <p className="text-sm text-zinc-400">{t("registerDescription")}</p>
-            <Link href="/register">
-              <Button className="backdrop-blur-md bg-black/50 border border-white/10 rounded-xl px-4 py-2 text-white hover:bg-gray-700/50 transition-colors">
-                {t("signUp")}
-              </Button>
-            </Link>
-          </div>
-
-          {/* Telegram aloqasi */}
-          <div className="backdrop-blur-md bg-black/30 border border-white/10 rounded-xl p-6 text-center space-y-4 animate-slideUp" style={{ animationDelay: "0.4s" }}>
-            <Send size={32} className="text-teal-400 mx-auto animate-pulse" />
-            <h3 className="text-xl font-semibold">{t("supportTitle")}</h3>
-            <p className="text-sm text-zinc-400">{t("supportDescription")}</p>
-            <Link href="https://t.me/PPES571" target="_blank" rel="noopener noreferrer">
-              <Button className="backdrop-blur-md bg-black/50 border border-white/10 rounded-xl px-4 py-2 text-white hover:bg-gray-700/50 transition-colors">
-                {t("contactSupport")}
-              </Button>
-            </Link>
-          </div>
-        </div>
-
-     
-      </div>
-
-     
+      )}
     </div>
   );
 }

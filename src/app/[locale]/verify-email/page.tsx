@@ -10,9 +10,11 @@ import { Button, Input } from "@heroui/react"
 import { useTranslations } from "next-intl"
 import confetti from "canvas-confetti"
 import BackButton from "@/ui/components/buttons/exit"
+import { toast } from "sonner"
 
 export default function VerifyEmailPage() {
   const t = useTranslations("VerifyEmailPage")
+  const to = useTranslations("Toast")
   const router = useRouter()
   const buttonRef = useRef(null)
   const [email, setEmail] = useState("")
@@ -26,6 +28,7 @@ export default function VerifyEmailPage() {
     // Retrieve email from localStorage
     const storedEmail = localStorage.getItem("pendingVerificationEmail")
     if (!storedEmail) {
+      toast.error(to("noEmailFound"))
       // If no email is found, redirect to registration
       router.push("/register")
       return
@@ -61,6 +64,7 @@ export default function VerifyEmailPage() {
     try {
       await API.post("/users/confirm-email-code", { email, code })
       setSuccess(true)
+      toast.success(to("emailVerified"))
       handleConfetti() // Trigger confetti on success
       // Clear the pending email from localStorage
       localStorage.removeItem("pendingVerificationEmail")

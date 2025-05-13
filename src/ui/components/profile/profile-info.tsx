@@ -3,15 +3,15 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { Button, Input } from "@heroui/react";
 import Avatar from "@/ui/components/avatar";
 import { ProfileInfoProps } from "./taype";
-import API from "@/lib/axios";
+// import API from "@/lib/axios";
 
 export default function ProfileInfo({ user, onUpdate }: ProfileInfoProps) {
   const t = useTranslations("ProfilePage");
-  const router = useRouter();
+  // const router = useRouter();
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     username: user.username,
@@ -38,28 +38,28 @@ export default function ProfileInfo({ user, onUpdate }: ProfileInfoProps) {
     setIsEditing(false);
   };
 
-  const handleVerifyEmail = async () => {
-    setLoading(true);
-    setError("");
+  // const handleVerifyEmail = async () => {
+  //   setLoading(true);
+  //   setError("");
 
-    try {
-      // Kodni qayta yuborish
-      await API.post("/users/send-email-code", { email: user.email });
-      // Emailni localStorage'ga saqlash (VerifyEmailPage uchun)
-      if (user.email) {
-        localStorage.setItem("pendingVerificationEmail", user.email);
-      } else {
-        console.error("User email is undefined");
-      }
-      // Email tasdiqlash sahifasiga yo'naltirish
-      router.push("/verify-email");
-    } catch (err) {
-      console.log(err);
+  //   try {
+  //     // Kodni qayta yuborish
+  //     await API.post("/users/send-email-code", { email: user.email });
+  //     // Emailni localStorage'ga saqlash (VerifyEmailPage uchun)
+  //     if (user.email) {
+  //       localStorage.setItem("pendingVerificationEmail", user.email);
+  //     } else {
+  //       console.error("User email is undefined");
+  //     }
+  //     // Email tasdiqlash sahifasiga yo'naltirish
+  //     router.push("/verify-email");
+  //   } catch (err) {
+  //     console.log(err);
       
-    } finally {
-      setLoading(false);
-    }
-  };
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   return (
     <div className="rounded-lg p-6 mb-8 backdrop-blur-md bg-black/30 border-b border-white/10 shadow-md">
@@ -132,7 +132,7 @@ export default function ProfileInfo({ user, onUpdate }: ProfileInfoProps) {
                 <span className="">{user.email}</span>
                 {!user.isEmailConfirmed && (
                   <button
-                    onClick={handleVerifyEmail}
+                
                     disabled={loading}
                     className="text-red-500 text-sm font-medium bg-red-100 dark:bg-red-900/30 px-2 py-1 rounded hover:bg-red-200 dark:hover:bg-red-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
@@ -167,7 +167,7 @@ export default function ProfileInfo({ user, onUpdate }: ProfileInfoProps) {
                 <span className="">{user.email}</span>
                 {!user.isEmailConfirmed && (
                   <button
-                    onClick={handleVerifyEmail}
+                   
                     disabled={loading}
                     className="text-red-500 text-sm font-medium dark:bg-red-900/30 px-2 py-1 rounded hover:bg-red-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >

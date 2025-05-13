@@ -25,7 +25,7 @@ export function useChat({ isOpen, product}: ChatModalProps) {
     const token = localStorage.getItem("token");
     if (!token) {
       console.error("Token not found, redirecting to login...");
-      router.push("/login");
+      router.push("/register");
       return;
     }
 
@@ -34,7 +34,7 @@ export function useChat({ isOpen, product}: ChatModalProps) {
       setCurrentUserId(decoded.id);
     } catch (error) {
       console.error("Token dekod qilishda xato:", error);
-      router.push("/login");
+      router.push("/register");
     }
   }, [router]);
 

@@ -1,3 +1,4 @@
+
 "use client"
 
 import type React from "react"
@@ -11,9 +12,11 @@ import { useTranslations } from "next-intl"
 import confetti from "canvas-confetti"
 import RBLogo from "@/ui/components/icons/logo"
 import BackButton from "@/ui/components/buttons/exit"
+import { toast } from "sonner"
 
 export default function RegisterPage() {
   const t = useTranslations("RegisterPage")
+  const to = useTranslations("Toast")
   const router = useRouter()
   const buttonRef = useRef(null)
   const [formData, setFormData] = useState({
@@ -23,10 +26,23 @@ export default function RegisterPage() {
   })
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
+  const [isEmailVisible, setIsEmailVisible] = useState(true)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  // Tasodifiy email generatsiya qilish
+  const generateRandomEmail = () => {
+    const randomString = Math.random().toString(36).substring(2, 10)
+    return `${randomString}@example.com`
+  }
+
+  // "Men email nima ekanligini bilmayman" tugmasi
+  const handleNoEmailKnowledge = () => {
+    setIsEmailVisible(false)
+    setFormData((prev) => ({ ...prev, email: generateRandomEmail() }))
   }
 
   const handleConfetti = () => {
@@ -43,42 +59,43 @@ export default function RegisterPage() {
     setError("")
 
     try {
-      // First register the user
-      await API.post("/users", formData)
+      // Foydalanuvchini ro'yxatdan o'tkazish
+      const response = await API.post("/users", formData)
 
-      // Then send verification email code
-      await API.post("/users/send-email-code", { email: formData.email })
-
-      // Store email in localStorage for verification page
-      localStorage.setItem("pendingVerificationEmail", formData.email)
-
-      // Trigger confetti on successful registration
-      handleConfetti()
-
-      // Redirect to verification page
-      router.push("/verify-email")
+      if (isEmailVisible) {
+        // Agar email ko'rinadigan bo'lsa, email tasdiqlash kodini yuboramiz
+        await API.post("/users/send-email-code", { email: formData.email })
+        localStorage.setItem("pendingVerificationEmail", formData.email)
+        toast.success(to("emailSent"))
+        handleConfetti()
+        router.push("/verify-email")
+      } else {
+        // Agar email yopilgan bo'lsa, to'g'ridan-to'g'ri login sahifasiga yo'naltiramiz
+        toast.success(to("accountCreated"))
+        handleConfetti()
+        router.push("/login")
+      }
     } catch (err) {
-      console.log(err);
-      
-    
+      console.log(err)
+      setError(t("errorCreatingAccount"))
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <div className="min-h-screen  flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-           <div className="flex items-center justify-between mb-6">
-            <BackButton/>
-            </div>
+    <div className="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="flex items-center justify-between mb-6">
+        <BackButton />
+      </div>
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
-          < RBLogo/>
+          <RBLogo />
         </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold ">
+        <h2 className="mt-6 text-center text-3xl font-extrabold">
           {t("title")}
         </h2>
-        <p className="mt-2 text-center text-sm ">
+        <p className="mt-2 text-center text-sm">
           {t("alreadyHaveAccount")}{" "}
           <Link href="/login" className="font-medium text-teal-600 dark:text-teal-300 hover:text-teal-700 dark:hover:text-teal-400">
             {t("signIn")}
@@ -87,7 +104,7 @@ export default function RegisterPage() {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="backdrop-blur-md bg-black/30 border-b border-white/10  py-8 px-4 shadow-md rounded-xl sm:px-10">
+        <div className="backdrop-blur-md bg-black/30 border-b border-white/10 py-8 px-4 shadow-md rounded-xl sm:px-10">
           {error && (
             <div className="mb-4 bg-red-50 dark:bg-red-900/30 border-l-4 border-red-500 dark:border-red-400 p-4 rounded-md">
               <div className="flex">
@@ -117,24 +134,35 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-200">
-                {t("emailLabel")}
-              </label>
-              <div className="mt-1">
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="block w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm placeholder-gray-400 dark:placeholder-gray-500 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-400 focus:border-teal-500 dark:focus:border-teal-400 sm:text-sm transition-colors duration-200"
-                  placeholder={t("emailPlaceholder")}
-                />
+            {isEmailVisible && (
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-200">
+                  {t("emailLabel")}
+                </label>
+                <div className="mt-1">
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="block w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm placeholder-gray-400 dark:placeholder-gray-500 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-400 focus:border-teal-500 dark:focus:border-teal-400 sm:text-sm transition-colors duration-200"
+                    placeholder={t("emailPlaceholder")}
+                  />
+                </div>
+                <div className="mt-2">
+                  <Button
+                    type="button"
+                    onClick={handleNoEmailKnowledge}
+                    className="text-sm text-teal-600 dark:text-teal-300 hover:text-teal-700 dark:hover:text-teal-400"
+                  >
+                    {t("dontKnowEmail")}
+                  </Button>
+                </div>
               </div>
-            </div>
+            )}
 
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-200">

@@ -30,7 +30,7 @@ const ThemeSwitch: FC<ThemeSwitchProps> = ({ type = 'fixed', className }) => {
 
   if (type === 'fixed') {
     return (
-      <div className={cn('fixed bottom-5 right-5 z-50', className)}>
+      <div className={cn('fixed bottom-28 lg:bottom-5 right-5 z-50', className)}>
         <button
           onClick={toggleTheme}
           className="rounded-full bg-gray-800 p-2 text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
@@ -47,7 +47,7 @@ const ThemeSwitch: FC<ThemeSwitchProps> = ({ type = 'fixed', className }) => {
   }
 
   return (
-    <div className="flex w-fit items-center rounded-2xl bg-gray-800 p-1">
+    <div className="flex w-fit items-center rounded-2xl bg-gray-800 p-1 ">
       <div className={cn('rounded-2xl', theme === 'dark' ? 'bg-gray-900' : 'bg-transparent')}>
         <button
           onClick={() => setTheme('dark')}

@@ -10,7 +10,10 @@
     "logout": "Logout",
      "menu": "Menu",
      "favorites": "Favorites",
-     "addProduct": "Add Product"
+     "addProduct": "Add Product",
+     "newMessages": "New Messages!",
+    "newMessagesBody": "You have {count} new message(s).",
+    "viewMessages": "View Messages"
   },
 
   "Footer": {
@@ -50,7 +53,9 @@
     "termsAndPrivacy": "By signing up, you agree to our",
     "termsOfService": "Terms of Service",
     "privacyPolicy": "Privacy Policy",
-    "error": "Registration failed. Please try again."
+    "errorCreatingAccount": "Registration failed. Please try again.",
+   "dontKnowEmail": "i don`t know my email"
+
   },
 
   "LoginPage": {
@@ -414,6 +419,29 @@
   "Metadata": {
     "title": "Online Marketplace",
     "description": "A platform for sharing and buying products for everyone"
-  }
+  },
+
+  "Toast": {
+"favS": "Product added to favorites",
+"favR": "Product removed from favorites",
+"Error": "An error occurred",
+"tokenError": "User is not authenticated",
+"productPublished": "Product published successfully",
+"imageDeleted": "Image deleted",
+"productUpdated": "Product updated successfully",
+"emailSent": "Verification code sent",
+"success": "Success",
+"errorLoadingChats": "Error loading messages",
+"errorDeletingChat": "Error deleting message",
+"chatDeleted": "Message deleted",
+"productLoaded": "Product loaded",
+"noEmailFound": "Email not found",
+"emailVerified": "Email verified",
+"statusAvailable": "Product available",
+"statusSold": "Product sold",
+"productDeleted": "Product deleted",
+"productDeleteError": "Error deleting product",
+"accountCreated": "Account created successfully"
+}
 
   }

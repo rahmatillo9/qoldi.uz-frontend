@@ -13,6 +13,7 @@ import { Trash2, Info } from "lucide-react";
 import { Button, Accordion, AccordionItem } from "@heroui/react";
 import MessagesSkeleton from "@/ui/components/skeletons/message-skeleton";
 import BackButton from "@/ui/components/buttons/exit";
+import { toast } from "sonner";
 
 interface ChatRoomWithUnread extends ChatRoom {
   unreadCount: number;
@@ -20,6 +21,7 @@ interface ChatRoomWithUnread extends ChatRoom {
 
 export default function MessagesPage() {
   const t = useTranslations("Messages");
+  const to = useTranslations("Toast");
   const router = useRouter();
   const [chatRooms, setChatRooms] = useState<ChatRoomWithUnread[]>([]);
   const [currentUserId, setCurrentUserId] = useState<number | null>(null);
@@ -31,7 +33,8 @@ export default function MessagesPage() {
     const token = localStorage.getItem("token");
     if (!token) {
       console.error("Token not found, redirecting to login...");
-      router.push("/login");
+      toast.error(to("tokenError"));
+      router.push("/register");
       return;
     }
 
@@ -40,7 +43,8 @@ export default function MessagesPage() {
       setCurrentUserId(decoded.id);
     } catch (error) {
       console.error("Token dekod qilishda xato:", error);
-      router.push("/login");
+      toast.error(to("tokenError"));
+      router.push("/register");
     }
   }, [router]);
 
@@ -61,8 +65,7 @@ export default function MessagesPage() {
               const unreadResponse = await API.get(
                 `/chat-room/${chat.id}/unread-count?receiverId=${currentUserId}`
               );
-              console.log(unreadResponse.data.unreadCount);
-              
+
               return {
                 ...chat,
                 unreadCount: unreadResponse.data.unreadCount || 0,
@@ -77,6 +80,7 @@ export default function MessagesPage() {
         setChatRooms(chatRoomsWithUnread);
       } catch (err) {
         setError("Chatlarni yuklashda xato yuz berdi.");
+        toast.error(to("errorLoadingChats"));
         console.error("Chatlarni olishda xato:", err);
       } finally {
         setLoading(false);
@@ -100,8 +104,10 @@ export default function MessagesPage() {
         },
       });
       setChatRooms(chatRooms.filter((chat) => chat.id !== chatId));
+      toast.success(to("chatDeleted"));
     } catch (err) {
       setError("Chatni o'chirishda xato yuz berdi.");
+      toast.error(to("errorDeletingChat"));
       console.error("Chatni o'chirishda xato:", err);
     }
   };

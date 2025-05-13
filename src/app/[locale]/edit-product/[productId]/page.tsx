@@ -16,6 +16,7 @@ import SuccessMessage from "@/ui/components/add-product/success-message";
 import StepIndicator from "@/ui/components/add-product/step-indicator";
 import { X } from "lucide-react";
 import BackButton from "@/ui/components/buttons/exit";
+import { toast } from "sonner";
 
 interface ProductImage {
   id: number;
@@ -42,6 +43,7 @@ interface Product {
 
 export default function EditProductPage() {
   const t = useTranslations("EditProductPage");
+  const to = useTranslations("Toast");
   const router = useRouter();
   const { productId } = useParams();
   const { userId } = useAuth();
@@ -98,6 +100,7 @@ export default function EditProductPage() {
         setExistingImages(images || []);
       } catch (err) {
         console.error("Rasmlarni yuklashda xato:", err);
+        toast.error(t("errorLoadingImages"));
         setError(t("errorLoadingImages"));
       } finally {
         setImagesLoading(false);
@@ -124,9 +127,11 @@ export default function EditProductPage() {
         },
       });
       setExistingImages(existingImages.filter((image) => image.id !== imageId));
+      toast.success(to("imageDeleted"));
     } catch (err) {
       console.error("Rasmni o'chirishda xato:", err);
       setError(t("imageDeleteError"));
+      toast.error(t("imageDeleteError"));
     }
   };
 
@@ -191,6 +196,7 @@ export default function EditProductPage() {
         }
 
         setSuccess(true);
+        toast.success(to("productUpdated"));
         confetti({
           particleCount: 100,
           spread: 70,
