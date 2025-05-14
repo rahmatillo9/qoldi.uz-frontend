@@ -18,7 +18,7 @@ export default function ServerError() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white px-4">
+    <div className="min-h-screen flex items-center justify-center backdrop-blur-md bg-black/30 border-b border-white/10 px-4">
       <div className="max-w-md w-full text-center space-y-6">
         <Image
           src="/images/web-app-manifest-512x512.png"
@@ -30,20 +30,20 @@ export default function ServerError() {
         <h1 className="text-5xl font-extrabold text-red-500 drop-shadow-md">
           {t('title')}
         </h1>
-        <p className="text-lg text-gray-300">
+        <p className="text-lg ">
           {t('message')}
         </p>
-        <p className="text-sm text-gray-400 italic">
+        <p className="text-sm  italic">
           {t('reason')}
         </p>
-        <p className="text-sm text-gray-400 italic">
+        <p className="text-sm italic">
           {t('thanks')}
         </p>
 
         {/* Tamirlash tugmasi */}
         <button
           onClick={handleRetry}
-          className="mt-4 px-6 py-3 rounded-xl bg-red-600 hover:bg-red-700 transition text-white font-bold shadow-lg"
+          className="mt-4 px-6 py-3 rounded-xl bg-red-600 hover:bg-red-700 transition  font-bold shadow-lg"
         >
           🔧 {t('repair') || 'Tamirlash'}
         </button>

@@ -47,7 +47,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "UBOX PWA",
     description: "UBOX Marketplace - Next.js asosida qurilgan PWA dastur bilan tanishing!",
-    images: ["/images/screenshot2.png"],
+    images: ["/images/web-app-manifest-512x512.png"],
   },
   manifest: "/manifest.json",
 };
@@ -70,7 +70,7 @@ export default async function LocaleLayout({
       <body className="flex flex-col min-h-screen bg-background text-foreground justify-between">
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
