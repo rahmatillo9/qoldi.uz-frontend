@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { Input, Button } from "@heroui/react";
 import API from "@/lib/axios";
-import BackButton from "@/ui/components/buttons/exit";
+// import BackButton from "@/ui/components/buttons/exit";
 import Link from "next/link";
 import { toast } from "sonner";
 
