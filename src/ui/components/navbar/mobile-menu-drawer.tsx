@@ -42,7 +42,7 @@ export default function MobileMenuDrawer({
       onOpenChange={onOpenChange}
       className="mobile-menu-drawer"
     >
-      <DrawerContent className="fixed top-0 right-0 h-96 max-w-full bg-background backdrop-blur-md bg-black/30 border-b border-white/10 shadow-md">
+      <DrawerContent className="fixed top-0 right-0 h-96 max-w-full bg-background backdrop-blur-md bg-black/30 border-b border-white/10 shadow-md text-white">
         {(onClose) => (
           <>
             <DrawerHeader className="flex flex-col gap-1 pt-4">
