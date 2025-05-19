@@ -85,7 +85,7 @@ export default async function LocaleLayout({
             </div>
             <ThemeSwitch />
             <Toaster position="top-right" />
-            <InstallPrompt /> {/* PWA o‘rnatish prompt’i */}
+            {/* <InstallPrompt />  */}
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

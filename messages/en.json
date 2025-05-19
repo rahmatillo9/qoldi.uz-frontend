@@ -71,7 +71,8 @@
     "termsOfService": "Terms of Service",
     "privacyPolicy": "Privacy Policy",
     "errorCreatingAccount": "Registration failed. Please try again.",
-   "dontKnowEmail": "i don`t know my email"
+    "skipEmail": "Skip email verification",
+    "errorMessage": "An error occurred. Please check your details and try again."
 
   },
 
@@ -137,7 +138,8 @@
     "saving": "Saving...",
     "publishing": "Publishing...",
     "error": "Failed to create product. Please try again.",
-    "loadingCategories": "Loading categories..."
+    "loadingCategories": "Loading categories...",
+        "errorLocationRequired": "Location is required"
   },
   "ImageUploader": {
     "dragAndDrop": "Drag and drop your images here",
@@ -458,7 +460,8 @@
 "statusSold": "Product sold",
 "productDeleted": "Product deleted",
 "productDeleteError": "Error deleting product",
-"accountCreated": "Account created successfully"
+"accountCreated": "Account created successfully",
+    "registrationSuccess": "Registration successful! Please check your email to verify your account."
 }
 
   }

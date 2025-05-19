@@ -149,11 +149,11 @@ export default function LoginPage() {
                 </label>
               </div>
 
-              <div className="text-sm">
+              {/* <div className="text-sm">
                 <Link href="/forgot-password" className="font-medium text-teal-600 dark:text-teal-300 hover:text-teal-700 dark:hover:text-teal-400">
                   {t("forgotPassword")}
                 </Link>
-              </div>
+              </div> */}
             </div>
 
             <div>

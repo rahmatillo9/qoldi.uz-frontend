@@ -74,7 +74,7 @@
     "termsOfService": "Foydalanish shartlari",
     "privacyPolicy": "Maxfiylik siyosati",
     "errorCreatingAccount": "Ro'yxatdan o'tish muvaffaqiyatsiz yakunlandi. Iltimos, qayta urinib ko'ring.",
-    "dontKnowEmail": "Men email nima ekanligini bilmayman"
+    "skipEmail": "elektron pochtani o`tkazib yuborish"
   },
 
   "LoginPage": {
@@ -141,7 +141,9 @@
     "publishing": "E’lon qilinmoqda...",
     "error": "Mahsulotni yaratish amalga oshmadi. Iltimos, qayta urinib ko‘ring.",
     "imageUploadError": "Rasmni yuklashda xatolik yuz berdi: {{name}}",
-    "loadingCategories": "Kategoriyalar yuklanmoqda..."
+    "loadingCategories": "Kategoriyalar yuklanmoqda...",
+    "errorLocationRequired": "Iltimos, joylashuvni kiriting",
+    "errorMessage": "Iltimos, xabarni kiriting"
     },
   "ImageUploader": {
     "dragAndDrop": "Rasmlaringizni bu yerga sudrab olib keling",
@@ -451,7 +453,8 @@
      "statusSold": "Mahsulot sotilgan",
     "productDeleted": "Mahsulot o'chirildi",
     "productDeleteError": "Mahsulotni o'chirishda xatolik",
-    "accountCreated": "Hisob muvaffaqiyatli yaratildi!"
+    "accountCreated": "Hisob muvaffaqiyatli yaratildi!",
+    "registrationSuccess": "Ro'yxatdan o'tish muvaffaqiyatli yakunlandi!"
   
   }
 

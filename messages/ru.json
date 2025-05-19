@@ -73,7 +73,8 @@
     "termsOfService": "Условиями использования",
     "privacyPolicy": "Политикой конфиденциальности",
     "errorCreatingAccount": "Регистрация не удалась. Пожалуйста, попробуйте снова.",
-    "dontKnowEmail": "Я не знаю, что такое email"
+     "skipEmail": "Пропустить email",
+     "errorMessage": "Ошибка. Пожалуйста, проверьте ваши данные."
   },
 
 
@@ -139,7 +140,8 @@
     "saving": "Сохранение...",
     "publishing": "Публикация...",
     "error": "Не удалось создать продукт. Пожалуйста, попробуйте снова.",
-    "loadingCategories": "Загрузка категорий..."
+    "loadingCategories": "Загрузка категорий...",
+        "errorLocationRequired": "Местоположение обязательно"
   },
   "ImageUploader": {
     "dragAndDrop": "Перетащите ваши изображения сюда",
@@ -461,7 +463,8 @@
 "statusSold": "Товар продан",
 "productDeleted": "Товар удален",
 "productDeleteError": "Ошибка при удалении товара",
-"accountCreated": "Аккаунт успешно создан"
+"accountCreated": "Аккаунт успешно создан",
+    "registrationSuccess": "Регистрация прошла успешно"
 }
 
 

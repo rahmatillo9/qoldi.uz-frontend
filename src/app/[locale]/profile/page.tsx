@@ -113,6 +113,7 @@ export default function ProfilePage() {
         bio: updatedUser.bio || undefined,
         avatar: updatedUser.avatar || user.avatar,
       });
+         window.location.href = "/profile";
     } catch (err) {
       setError("Profilni yangilashda xatolik yuz berdi");
       console.error(err);
