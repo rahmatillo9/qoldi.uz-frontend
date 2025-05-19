@@ -100,7 +100,7 @@ export default function ProductForm({
             }}
           >
             {categories.map((category) => (
-              <SelectItem key={category.id.toString()}>{category.name}</SelectItem>
+              <SelectItem className="text-white" key={category.id.toString()}>{category.name}</SelectItem>
             ))}
           </Select>
         </div>
