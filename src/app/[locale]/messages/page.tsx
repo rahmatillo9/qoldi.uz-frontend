@@ -17,7 +17,10 @@ import { toast } from "sonner";
 
 interface ChatRoomWithUnread extends ChatRoom {
   unreadCount: number;
+  
 }
+
+
 
 export default function MessagesPage() {
   const t = useTranslations("Messages");
@@ -116,6 +119,7 @@ export default function MessagesPage() {
   if (loading) return <MessagesSkeleton />;
   if (error) return <div className="text-center py-10 text-red-500">{error}</div>;
 
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-6">
@@ -197,7 +201,7 @@ export default function MessagesPage() {
                     </div>
                     {chat.product.images && chat.product.images.length > 0 && (
                       <img
-                        src={`${process.env.NEXT_PUBLIC_API_URL}${chat.product.images[0]}`}
+                        src={`${process.env.NEXT_PUBLIC_API_URL}${chat.product.images[0].imageUrl}`}
                         alt={chat.product.title}
                         className="mt-3 w-32 h-32 object-cover rounded-md"
                       />

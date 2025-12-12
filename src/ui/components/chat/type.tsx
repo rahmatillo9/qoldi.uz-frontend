@@ -18,15 +18,20 @@ export interface ChatRoom {
     avatar: string | null;
   };
   product: {
-    images: string;
+    images: {
+      id: number;
+      imageUrl: string;
+      productId: number;
+    }[];
     status: string;
-    price: ReactNode;
-    description: ReactNode;
+    price: React.ReactNode;
+    description: React.ReactNode;
     id: number;
     title: string;
   };
   messages: Message[];
 }
+
 
 export interface ChatInputProps {
   newMessage: string;

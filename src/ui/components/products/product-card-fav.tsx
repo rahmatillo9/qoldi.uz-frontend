@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import ImageCarousel from "./image-carousel";
 import {  Circle, Heart } from "lucide-react";
-import Avatar from "../avatar";
+// import Avatar from "../avatar";
 import Link from "next/link";
 import API from "@/lib/axios";
 import { jwtDecode } from "jwt-decode";
@@ -85,7 +85,8 @@ export default function ProductCard({ favorite, fetchFavorites }: ExtendedProduc
     : favorite.product.description;
 
   if (loading) return <ProductCardSkeleton />;
-
+ console.log("ProductCard props:", favorite.product);
+ 
   return (
     <div className="backdrop-blur-md bg-black/30 border-b hover:scale-102 border-white/10 shadow-mdrounded-lg shadow-md overflow-hidden transition-transform transform rounded-xl hover:shadow-lg">
       <ImageCarousel images={favorite.product.images} />
@@ -109,12 +110,12 @@ export default function ProductCard({ favorite, fetchFavorites }: ExtendedProduc
           </div>
           <p className="text-xs sm:text-sm mt-1 truncate">{shortDescription}</p>
           <div className="flex items-center mt-2">
-            <Avatar
+            {/* <Avatar
               src={`${process.env.NEXT_PUBLIC_API_URL}${favorite.user.avatar}`}
               size={25}
               bordered={true}
-            />
-            <span className="ml-3 text-2xl sm:text-sm">{favorite.user.username}</span>
+            /> */}
+            {/* <span className="ml-3 text-2xl sm:text-sm">{favorite.user.username}</span> */}
           </div>
           <div className="flex items-center mt-2">
             <span className="font-medium text-sm sm:text-base">{favorite.product.price} {t("currency")}</span>
